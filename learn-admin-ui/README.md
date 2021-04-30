@@ -7,11 +7,6 @@
 
 learn-admin-ui 是网站项目管理后台ui
 
-### 项目演示
-
-项目在线演示地址：[http://www.macrozheng.com/admin/](http://www.macrozheng.com/admin/)
-
-![https://github.com/macrozheng/mall/blob/master/document/resource/mall-admin.gif](https://github.com/macrozheng/mall/blob/master/document/resource/mall-admin.gif)
 
 ### 技术选型
 
