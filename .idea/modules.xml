@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/javalearnsource.iml" filepath="$PROJECT_DIR$/.idea/javalearnsource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn/learn.iml" filepath="$PROJECT_DIR$/learn/learn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn/learn-admin/learn-admin.iml" filepath="$PROJECT_DIR$/learn/learn-admin/learn-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn-admin-ui/learn-admin-ui.iml" filepath="$PROJECT_DIR$/learn-admin-ui/learn-admin-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn/learn-common/learn-common.iml" filepath="$PROJECT_DIR$/learn/learn-common/learn-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn/learn-mbg/learn-mbg.iml" filepath="$PROJECT_DIR$/learn/learn-mbg/learn-mbg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/learn/learn-web/learn-web.iml" filepath="$PROJECT_DIR$/learn/learn-web/learn-web.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="learn-admin" />
+        <module name="learn-web" />
+        <module name="learn-common" />
+        <module name="learn-mbg" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="learn" target="1.8" />
+      <module name="learn-admin" target="1.8" />
+      <module name="learn-common" target="1.8" />
+      <module name="learn-mbg" target="1.8" />
+      <module name="learn-web" target="1.8" />
+      <module name="perf" target="1.8" />
+      <module name="perf-auth" target="1.8" />
+      <module name="perf-common" target="1.8" />
+      <module name="perf-config" target="1.8" />
+      <module name="perf-export-api" target="1.8" />
+      <module name="perf-export-service" target="1.8" />
+      <module name="perf-gateway" target="1.8" />
+      <module name="perf-ms-api" target="1.8" />
+      <module name="perf-ms-service" target="1.8" />
+      <module name="perf-ms-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
