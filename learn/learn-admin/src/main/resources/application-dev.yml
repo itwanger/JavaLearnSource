@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    druid:
+      stat-view-servlet: #访问监控网页的登录用户名和密码
+        login-username: druid
+        login-password: druid
+      web-stat-filter:
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*" #不统计这些请求数据
+      url: jdbc:mysql://localhost:3306/mall?serverTimezone=UTC
+        username: qhsw
+        password: qhsw
+        driver-class-name: oracle.jdbc.OracleDriver
+        initial-size: 20 #连接池初始化大小
+        min-idle: 10 #最小空闲连接数
+        max-active: 200 #最大连接数
+        filter:
+          wall:
+            enabled: true
+            db-type: mysql
+
+
