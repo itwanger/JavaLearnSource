@@ -5,7 +5,7 @@
 
     <property name="APP_NAME" value="learn-web" />
     <property name="LOG_PATH" value="${user.home}/${APP_NAME}/logs" />
-    <property name="LOG_FILE" value="${LOG_PATH}/application.log" />
+    <property name="LOG_FILE" value="${LOG_PATH}/learn-web.log" />
 
     <appender name="APPLICATION"
         class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -28,7 +28,7 @@
         </encoder>
     </appender>
 
-    <root level="debugg">
+    <root level="info">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="APPLICATION" />
     </root>
