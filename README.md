@@ -60,3 +60,5 @@ LearnJava在线学习网站的开源代码
 # 计划
 ![](https://cdn.nlark.com/yuque/0/2021/jpeg/354158/1619537457787-191595e4-138e-4bad-901b-e2c57e76d5fc.jpeg)
 
+# 数据库设计
+![在这里插入图片描述](https://github.com/itwanger/JavaLearnSource/blob/main/doc/%E6%95%B0%E6%8D%AE%E5%BA%93.png)
