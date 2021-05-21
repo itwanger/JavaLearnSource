@@ -189,6 +189,13 @@
                 <artifactId>velocity-engine-core</artifactId>
                 <version>2.3</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>1.5.2</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
