@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learn.mapper.SiteMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.learn.model.Site">
+        <result column="SITE_ID" property="siteId" />
+        <result column="SITE_NAME" property="siteName" />
+        <result column="SITE_DESC" property="siteDesc" />
+        <result column="DOMAIN" property="domain" />
+        <result column="TEL_NAME" property="telName" />
+        <result column="STATIC_DIR" property="staticDir" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        SITE_ID, SITE_NAME, SITE_DESC, DOMAIN, TEL_NAME, STATIC_DIR
+    </sql>
+
+</mapper>

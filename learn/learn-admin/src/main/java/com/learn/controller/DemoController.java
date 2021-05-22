@@ -1,7 +1,12 @@
 package com.learn.controller;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
 import com.learn.mapper.UserMapper;
 import com.learn.model.User;
+import com.learn.model.Users;
+import com.learn.service.IUsersService;
 import com.learn.webapi.CommonResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,11 +27,15 @@ public class DemoController {
     }
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private IUsersService iUsersService;
 
     @RequestMapping(value = "/echo", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation("用户列表")
     public CommonResult<List<User>> echo(String message) {
+        Wrapper<Users> queryWrapper = new QueryWrapper<>();
+        iUsersService.list(queryWrapper);
         return CommonResult.success(userMapper.selectList(null));
     }
 }

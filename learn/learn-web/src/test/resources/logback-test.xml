@@ -33,7 +33,7 @@
     </root>
 
     <!--应用日志-->
-    <logger name="com.qingmiaokeji.perf" level="DEBUG"/>
+    <logger name="com.learn" level="DEBUG"/>
 
     <!--数据库日志-->
     <logger name="com.apache.ibatis" level="TRACE"/>

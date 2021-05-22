@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -15,6 +16,7 @@ import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 
+import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.apache.commons.lang3.StringUtils;
 
@@ -47,17 +49,21 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir( "D:/work/workspace");
+        gc.setOutputDir( "D:/test");
         gc.setAuthor("石磊");
         gc.setOpen(false);
-        gc.setSwagger2(false);
+        gc.setDateType(DateType.ONLY_DATE);
+        gc.setSwagger2(true);
+        gc.setIdType(IdType.AUTO);
         mpg.setGlobalConfig(gc);
-
+        gc.setBaseColumnList(true);
+        gc.setBaseResultMap(true);
+        gc.setFileOverride(true);
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.30.246:3306/zs?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai");
+        dsc.setUrl("jdbc:mysql://localhost:3306/learn?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai");
         // dsc.setSchemaName("public");
-        dsc.setDriverName("com.mysql.jdbc.Driver");
+        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123");
         mpg.setDataSource(dsc);
@@ -68,9 +74,12 @@ public class CodeGenerator {
         pc.setEntity("model");
         mpg.setPackageInfo(pc);
         StrategyConfig strategyConfig = new StrategyConfig();
+        // 配置数据表与实体类名之间映射的策略
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);
-        strategyConfig.setEntityLombokModel(true);
+// 配置数据表的字段与实体类的属性名之间映射的策略
+        strategyConfig.setColumnNaming(NamingStrategy.underline_to_camel);
 
+        strategyConfig.setEntityLombokModel(true);
         mpg.setStrategy(strategyConfig);
 
 

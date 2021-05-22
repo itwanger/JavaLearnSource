@@ -21,7 +21,6 @@ public class SwaggerConfig {
                 .select()
                 //apis： 添加swagger接口提取范围
                 .apis(RequestHandlerSelectors.basePackage("com.learn"))
-                //.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -30,7 +29,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("学习网站后台接口")
                 .description("学习网站")
-                .contact(new Contact("作者", "作者URL", "作者Email"))
+                .contact(new Contact("沉默王二&石磊", "作者URL", "作者Email"))
                 .version("1.0")
                 .build();
     }

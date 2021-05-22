@@ -1,6 +1,11 @@
 package com.learn.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel("用户基本信息")
 public class User {
+    @ApiModelProperty("年龄")
     private Long id;
     private String name;
     private Integer age;
