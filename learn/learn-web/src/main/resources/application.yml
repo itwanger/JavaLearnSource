@@ -10,5 +10,14 @@ spring:
     time-zone: GMT+8
 
 server:
-  port: 8080
+  port: 8081
 
+mybatis-plus:
+  mapper-locations:
+    - classpath:dao/*.xml
+    - classpath*:com/**/mapper/*.xml
+  global-config:
+    db-config:
+      table-underline: true
+  configuration:
+    map-underscore-to-camel-case: true

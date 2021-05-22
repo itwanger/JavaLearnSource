@@ -1,6 +1,7 @@
 package com.learn.controller;
 
 
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 @RequestMapping("/links")
+@Api(tags="链接信息")
 public class LinksController {
 
 }

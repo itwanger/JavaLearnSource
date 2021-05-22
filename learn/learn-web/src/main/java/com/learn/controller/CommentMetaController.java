@@ -1,5 +1,6 @@
 package com.learn.controller;
 
+
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.learn.mapper.UserMapper;
@@ -17,13 +18,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * <p>
+ * 文章评论额外信息表 前端控制器
+ * </p>
+ *
+ * @author 石磊
+ * @since 2021-05-22
+ */
 @Controller
-@Api(tags="测试")
-public class DemoController {
-
-    static {
-        System.out.println(1);
-    }
+@RequestMapping("/commentMeta")
+@Api(tags="文章评论额外信息")
+public class CommentMetaController {
     @Autowired
     private UserMapper userMapper;
     @Autowired
@@ -38,3 +44,4 @@ public class DemoController {
         return CommonResult.success(userMapper.selectList(null));
     }
 }
+

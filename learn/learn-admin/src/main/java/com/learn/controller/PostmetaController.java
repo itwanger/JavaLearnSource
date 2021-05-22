@@ -1,6 +1,7 @@
 package com.learn.controller;
 
 
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
  * @since 2021-05-22
  */
 @Controller
+@Api(tags="文章属性表")
 @RequestMapping("/postmeta")
 public class PostmetaController {
 

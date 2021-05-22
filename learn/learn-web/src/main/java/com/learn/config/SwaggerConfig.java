@@ -30,7 +30,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("学习网站前台接口")
                 .description("学习网站")
-                .contact(new Contact("作者", "作者URL", "作者Email"))
+                .contact(new Contact("沉默王二&程序员石磊", "作者URL", "作者Email"))
                 .version("1.0")
                 .build();
     }
