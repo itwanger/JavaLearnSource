@@ -60,12 +60,10 @@ LearnJava在线学习网站的开源代码
 ![image.png](https://cdn.nlark.com/yuque/0/2021/png/354158/1618128832822-2b27668a-a983-4dc8-8c1a-1001eb0a84e9.png#align=left&display=inline&height=23&margin=%5Bobject%20Object%5D&name=image.png&originHeight=46&originWidth=1046&size=42299&status=done&style=none&width=523)
 # 计划
 ![](https://cdn.nlark.com/yuque/0/2021/jpeg/354158/1619537457787-191595e4-138e-4bad-901b-e2c57e76d5fc.jpeg)
-# 美景
-https://user-images.githubusercontent.com/11729877/119362794-aa8c9180-bcdf-11eb-9488-ed7c9b50e150.mp4
 
 # 数据库设计
 ![在这里插入图片描述](https://github.com/itwanger/JavaLearnSource/blob/main/doc/%E6%95%B0%E6%8D%AE%E5%BA%93.png)
 
+# 美景
+https://user-images.githubusercontent.com/11729877/119362794-aa8c9180-bcdf-11eb-9488-ed7c9b50e150.mp4
 
-# 好玩
-https://user-images.githubusercontent.com/11729877/119310085-d9841280-bca1-11eb-99c2-be27865c32b1.mp4
