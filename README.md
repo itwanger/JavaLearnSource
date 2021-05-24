@@ -52,8 +52,6 @@ LearnJava在线学习网站的开源代码
 | Redis | [https://redis.io/download](https://redis.io/download) |
 | nginx | [http://nginx.org/en/download.html](http://nginx.org/en/download.html) |
 
-# 好玩
-https://user-images.githubusercontent.com/11729877/119310085-d9841280-bca1-11eb-99c2-be27865c32b1.mp4
 
 # 参考资料
 [https://halo.run](https://halo.run)
@@ -65,3 +63,7 @@ https://user-images.githubusercontent.com/11729877/119310085-d9841280-bca1-11eb-
 
 # 数据库设计
 ![在这里插入图片描述](https://github.com/itwanger/JavaLearnSource/blob/main/doc/%E6%95%B0%E6%8D%AE%E5%BA%93.png)
+
+
+# 好玩
+https://user-images.githubusercontent.com/11729877/119310085-d9841280-bca1-11eb-99c2-be27865c32b1.mp4
