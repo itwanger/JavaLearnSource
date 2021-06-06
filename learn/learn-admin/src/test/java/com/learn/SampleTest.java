@@ -28,18 +28,7 @@ public class SampleTest {
     private static Logger LOGGER = LoggerFactory.getLogger(SampleTest.class);
     @Test
     public void testSelect() {
-        Wrapper<Users> queryWrapper = new QueryWrapper<>();
-        Users users = new Users();
-        users.setUserRegistered(new Date());
-        users.setDisplayName("231");
-        iUsersService.save(users);
-        List<Users> userList = iUsersService.list(queryWrapper);
-        System.out.println(("----- selectAll method test ------"));
-////      /*  List<Users> userList = userMapper.selectList(null);
-//        userList.forEach(System.out::println);*/
-        userList.stream().forEach((k) -> {
-            LOGGER.info(k.getDisplayName());
-        });
+     
     }
 
 }

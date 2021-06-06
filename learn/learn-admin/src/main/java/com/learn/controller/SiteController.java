@@ -2,8 +2,20 @@ package com.learn.controller;
 
 
 import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.RequestMapping;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.validation.Valid;
+
+import com.learn.model.Site;
+import com.learn.service.ISiteService;
+import com.learn.webapi.CommonResult;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -18,6 +30,14 @@ import org.springframework.stereotype.Controller;
 @Api(tags="站点")
 @RequestMapping("/site")
 public class SiteController {
+    @Autowired
+    private ISiteService siteService;
 
+    @RequestMapping(value = "/insert",method=RequestMethod.POST)
+    @ResponseBody
+    @ApiOperation("添加站点")
+    public CommonResult<String> insert(@Valid   Site site){
+        return CommonResult.success( siteService.save(site)?"保存成功":"保存失败");
+    }
 }
 

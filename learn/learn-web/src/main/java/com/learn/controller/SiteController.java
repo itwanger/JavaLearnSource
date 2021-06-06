@@ -17,6 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Api(tags="站点")
 @RequestMapping("/site")
 public class SiteController {
-
+  
 }
 
