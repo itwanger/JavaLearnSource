@@ -3,7 +3,6 @@ package com.learn.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,8 +35,8 @@ public class SiteController {
     @RequestMapping(value = "/insert",method=RequestMethod.POST)
     @ResponseBody
     @ApiOperation("添加站点")
-    public CommonResult<String> insert(@Valid   Site site){
-        int i = 1/0;
+    public CommonResult<String> insert(@Valid   Site site)  {
+//       throw new ApiException("test");
         return CommonResult.success( siteService.save(site)?"保存成功":"保存失败");
     }
 }
