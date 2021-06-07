@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-LearnAdminBootstrap<learn-admin>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.learn.LearnAdminBootstrap",
+            "projectName": "learn-admin",
+            "args": ""
+        }
+    ]
+}

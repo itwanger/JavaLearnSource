@@ -37,6 +37,7 @@ public class SiteController {
     @ResponseBody
     @ApiOperation("添加站点")
     public CommonResult<String> insert(@Valid   Site site){
+        int i = 1/0;
         return CommonResult.success( siteService.save(site)?"保存成功":"保存失败");
     }
 }

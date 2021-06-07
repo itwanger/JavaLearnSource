@@ -23,7 +23,6 @@ import lombok.experimental.Accessors;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
 @ApiModel(value="Site对象", description="站点")
 public class Site implements Serializable {
 
