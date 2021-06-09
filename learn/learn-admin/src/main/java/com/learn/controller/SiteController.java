@@ -1,6 +1,8 @@
 package com.learn.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -16,6 +18,9 @@ import com.learn.webapi.ResultObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <p>
@@ -62,6 +67,18 @@ public class SiteController {
     @ApiOperation("删除")
     public ResultObject<String> delete(long siteId) {
         return ResultObject.success(siteService.removeById(siteId) ? "删除成功" : "删除失败");
+    }
+
+    @RequestMapping(value = "/queryPageable",method=RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("分页查询")
+    public ResultObject<Map<String,Object>> queryPageable(long pageSize,long pageNumber){
+        Map<String,Object> map = new HashMap<>();
+        Page<Site> sitePage = new Page<>(pageNumber,pageSize);
+        IPage<Site> siteIPage = siteService.page(sitePage);
+        map.put("list",siteIPage.getRecords());
+        map.put("total",siteIPage.getTotal());
+        return ResultObject.success(map);
     }
 
 
