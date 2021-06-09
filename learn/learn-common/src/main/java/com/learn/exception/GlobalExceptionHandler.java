@@ -1,7 +1,7 @@
 package com.learn.exception;
 
 
-import com.learn.webapi.CommonResult;
+import com.learn.webapi.ResultObject;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,10 +19,10 @@ public class GlobalExceptionHandler {
     }
     @ResponseBody
     @ExceptionHandler(value = ApiException.class)
-    public CommonResult handle(ApiException e) {
+    public ResultObject handle(ApiException e) {
         if (e.getErrorCode() != null) {
-            return CommonResult.failed(e.getErrorCode());
+            return ResultObject.failed(e.getErrorCode());
         }
-        return CommonResult.failed(e.getMessage());
+        return ResultObject.failed(e.getMessage());
     }
 }

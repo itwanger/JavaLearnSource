@@ -7,7 +7,7 @@ import com.learn.mapper.UserMapper;
 import com.learn.model.User;
 import com.learn.model.Users;
 import com.learn.service.IUsersService;
-import com.learn.webapi.CommonResult;
+import com.learn.webapi.ResultObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +38,10 @@ public class CommentMetaController {
     @RequestMapping(value = "/echo", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation("用户列表")
-    public CommonResult<List<User>> echo(String message) {
+    public ResultObject<List<User>> echo(String message) {
         Wrapper<Users> queryWrapper = new QueryWrapper<>();
         iUsersService.list(queryWrapper);
-        return CommonResult.success(userMapper.selectList(null));
+        return ResultObject.success(userMapper.selectList(null));
     }
 }
 

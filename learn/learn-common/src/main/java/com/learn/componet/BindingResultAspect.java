@@ -1,6 +1,6 @@
 package com.learn.componet;
 
-import com.learn.webapi.CommonResult;
+import com.learn.webapi.ResultObject;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -31,9 +31,9 @@ public class BindingResultAspect {
                 if (result.hasErrors()) {
                     FieldError fieldError = result.getFieldError();
                     if(fieldError!=null){
-                        return CommonResult.validateFailed(fieldError.getDefaultMessage());
+                        return ResultObject.validateFailed(fieldError.getDefaultMessage());
                     }else{
-                        return CommonResult.validateFailed();
+                        return ResultObject.validateFailed();
                     }
                 }
             }

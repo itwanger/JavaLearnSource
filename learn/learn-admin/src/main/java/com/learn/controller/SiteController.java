@@ -12,7 +12,7 @@ import javax.validation.Valid;
 
 import com.learn.model.Site;
 import com.learn.service.ISiteService;
-import com.learn.webapi.CommonResult;
+import com.learn.webapi.ResultObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ import org.springframework.stereotype.Controller;
  * @since 2021-05-22
  */
 @Controller
-@Api(tags="站点")
+@Api(tags = "站点")
 @RequestMapping("/site")
 public class SiteController {
     @Autowired
@@ -35,9 +35,35 @@ public class SiteController {
     @RequestMapping(value = "/insert",method=RequestMethod.POST)
     @ResponseBody
     @ApiOperation("添加站点")
-    public CommonResult<String> insert(@Valid   Site site)  {
+    public ResultObject<String> insert(@Valid Site site) {
 //       throw new ApiException("test");
-        return CommonResult.success( siteService.save(site)?"保存成功":"保存失败");
+        return ResultObject.success(siteService.save(site) ? "保存成功" : "保存失败");
     }
+
+    @RequestMapping(value = "/getById",method=RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("根据id获取站点")
+    public ResultObject<Site> getById(long siteId) {
+        return ResultObject.success(siteService.getById(siteId));
+    }
+
+    @RequestMapping(value = "/update",method=RequestMethod.POST)
+    @ResponseBody
+    @ApiOperation("更新")
+    public ResultObject<String> update(@Valid Site site) {
+        if (site.getSiteId() == null) {
+            return ResultObject.failed("id不能为空");
+        }
+        return ResultObject.success(siteService.updateById(site) ? "更新成功" : "更新失败");
+    }
+
+    @RequestMapping(value = "/delete",method=RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("删除")
+    public ResultObject<String> delete(long siteId) {
+        return ResultObject.success(siteService.removeById(siteId) ? "删除成功" : "删除失败");
+    }
+
+
 }
 
