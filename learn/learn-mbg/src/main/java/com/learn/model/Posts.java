@@ -12,6 +12,9 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 /**
  * <p>
  * 文章
@@ -42,6 +45,7 @@ public class Posts implements Serializable {
     private String postContent;
 
     @ApiModelProperty(value = "标题")
+    @NotBlank(message = "标题不能为空")
     private String postTitle;
 
     @ApiModelProperty(value = "摘录")
@@ -61,12 +65,14 @@ public class Posts implements Serializable {
     private Integer menuOrder;
 
     @ApiModelProperty(value = "文章类型（post/page等）")
+    @NotBlank(message = "文章类型不能空")
     private String postType;
 
     @ApiModelProperty(value = "评论总数")
     private Long commentCount;
 
     @ApiModelProperty(value = "站点id")
+    @NotNull(message = "站点id为空")
     private Long siteId;
 
 
