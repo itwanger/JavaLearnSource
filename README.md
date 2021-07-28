@@ -3,12 +3,12 @@ LearnJava在线学习网站的开源代码
 
 # 项目结构介绍
 ## 后台
-| 项目名 | 作用 |
-| --- | --- |
-| learn-mbg | 实体、dao 、dto|
-| learn-web | 前端 |
-| learn-common | 公用模块 |
-| learn-admin | 后台 |
+| 项目名 | 作用 | 地址 |
+| --- | --- |--- |
+| learn-mbg | 实体、dao 、dto| |
+| learn-web | 前端接口 | http://localhost:8080/swagger-ui/index.html |
+| learn-common | 公用模块 | |
+| learn-admin | 后台接口 | http://localhost:8081/swagger-ui/index.html|
 
 
 ## 前端
