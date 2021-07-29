@@ -40,7 +40,7 @@ LearnJava在线学习网站的开源代码
 | Vuex | 全局状态管理框架 | [https://vuex.vuejs.org/](https://vuex.vuejs.org/) |
 | ant design vue | 前端UI框架 | [https://www.antdv.com/](https://www.antdv.com/) |
 | Axios | 前端HTTP框架 | [https://github.com/axios/axios](https://github.com/axios/axios) |
-| vue-antd-admin | 开箱即用的中后台前端/设计解决方案 | [https://gitee.com/iczer/vue-antd-admin?_from=gitee_search](https://gitee.com/iczer/vue-antd-admin?_from=gitee_search) |
+| vue-vben-admin | 开箱即用的中后台前端/设计解决方案 | [https://github.com/anncwb/vue-vben-admin](https://github.com/anncwb/vue-vben-admin) |
 
 
 
