@@ -13,9 +13,9 @@ LearnJava在线学习网站的开源代码
 
 ## 前端
 
-| 项目名 | 作用 |
-| --- | --- |
-| learn-admin-ui | 后台管理ui |
+| 项目名 | 作用 | 地址 |
+| --- | --- | --- |
+| learn-web-admin | 后台管理ui | https://github.com/zhangleino1/learn-web-admin |
 
 # 后端技术
 | 技术 | 说明 | 官网 |
