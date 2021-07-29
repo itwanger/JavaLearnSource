@@ -30,7 +30,7 @@ LearnJava在线学习网站的开源代码
 | OSS | 对象存储 | [https://github.com/aliyun/aliyun-oss-java-sdk](https://github.com/aliyun/aliyun-oss-java-sdk) |
 | JWT | JWT登录支持 | [https://github.com/jwtk/jjwt](https://github.com/jwtk/jjwt) |
 | thymeleaf | 模板引擎方案 | [https://www.thymeleaf.org/](https://www.thymeleaf.org/) |
-| arthas |性能监控 | [https://www.thymeleaf.org/](https://www.thymeleaf.org/) |
+| arthas |性能监控 | [https://arthas.aliyun.com/doc/](https://arthas.aliyun.com/doc/) |
 
 # 前端技术
 | 技术 | 说明 | 官网 |
