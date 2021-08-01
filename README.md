@@ -18,7 +18,7 @@
 
 | 项目名 | 作用 | 地址 |
 | --- | --- | --- |
-| learn-web-admin | 前端项目 | https://github.com/zhangleino1/learn-web-admin |
+| learn-admin-web | 前端项目 | https://github.com/zhangleino1/learn-web-admin |
 
 # 后端技术
 | 技术 | 说明 | 官网 |
