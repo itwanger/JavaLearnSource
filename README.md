@@ -11,14 +11,14 @@
 | learn-mbg | MyBatis-Plus 根据数据库表直接生成的实体类| |
 | learn-common | 异常定义、JSON 格式、错误码定义等等 | |
 | learn-web | 针对用户的 Web 前端 | http://localhost:8080/swagger-ui/index.html |
-| learn-admin | 后台项目 | http://localhost:8081/swagger-ui/index.html|
+| learn-admin | 针对网站管理员的 Web 后端 | http://localhost:8081/swagger-ui/index.html|
 
 
 ## 前端
 
 | 项目名 | 作用 | 地址 |
 | --- | --- | --- |
-| learn-admin-web | 前端项目 | https://github.com/zhangleino1/learn-web-admin |
+| learn-admin-web | 针对网站管理员的 Web 前端 | https://github.com/zhangleino1/learn-web-admin |
 
 # 后端技术
 | 技术 | 说明 | 官网 |
