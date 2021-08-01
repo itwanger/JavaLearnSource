@@ -1,21 +1,24 @@
-# JavaLearnSource
-LearnJava在线学习网站的开源代码
+为了给小白学习 Java 提供一些帮助，我们创建了 LearnJava 在线学习网站。与此同时，我们把网站的源码也开放了——名字就叫，为的就是让大家在学习 Java 的时候，能多一个练手项目。
+
+大家都知道，阅读优秀的源代码能够快速地提升编程功底，所以
+
+
 
 # 项目结构介绍
 ## 后台
 | 项目名 | 作用 | 地址 |
 | --- | --- |--- |
-| learn-mbg | 实体、dao 、dto| |
-| learn-web | 前端接口 | http://localhost:8080/swagger-ui/index.html |
-| learn-common | 公用模块 | |
-| learn-admin | 后台接口 | http://localhost:8081/swagger-ui/index.html|
+| learn-mbg | MyBatis-Plus 根据数据库表直接生成的实体类| |
+| learn-common | 异常定义、JSON 格式、错误码定义等等 | |
+| learn-web | 针对用户的 Web 前端 | http://localhost:8080/swagger-ui/index.html |
+| learn-admin | 后台项目 | http://localhost:8081/swagger-ui/index.html|
 
 
 ## 前端
 
 | 项目名 | 作用 | 地址 |
 | --- | --- | --- |
-| learn-web-admin | 后台管理ui | https://github.com/zhangleino1/learn-web-admin |
+| learn-web-admin | 前端项目 | https://github.com/zhangleino1/learn-web-admin |
 
 # 后端技术
 | 技术 | 说明 | 官网 |
