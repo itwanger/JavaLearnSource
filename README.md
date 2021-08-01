@@ -19,7 +19,7 @@
 
 | 项目名 | 作用 | 地址 |
 | --- | --- | --- |
-| learn-admin-web | 针对网站管理员的 Web 前端 | https://github.com/zhangleino1/learn-web-admin |
+| learn-admin-web | 针对网站管理员的 Web 前端 | https://github.com/zhangleino1/learn-admin-web |
 
 # 后端技术
 | 技术 | 说明 | 官网 |
