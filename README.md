@@ -9,15 +9,31 @@
 
 | 项目名 | 作用 | 
 | --- | --- |
-| learn-mbg | MyBatis-Plus 根据数据库表直接生成的实体类| 
-| learn-common | 异常定义、JSON 格式、错误码定义等等 | 
-| learn-web | 针对用户的 Web 前端 |  
-| learn-admin | 针对网站管理员的 Web 后端 | 
-| learn-admin-web | 针对网站管理员的 Web 前端 | 
+| learn-mbg | MyBatis-Plus 根据数据库表直接生成的实体类模块 | 
+| learn-common | 异常定义、JSON 格式、错误码定义等等公共模块 | 
+| learn-web | 针对用户的 Web 的前后端模块 |  
+| learn-admin | 针对网站管理员的 Web 后端模块 | 
+| learn-admin-web | 针对网站管理员的 Web 前端模块 | 
 
-用户的 Web 前端体验地址：http://localhost:8080/swagger-ui/index.html
-管理员的 Web 后端后端体验地址：http://localhost:8081/swagger-ui/index.html
-前端体验地址：https://github.com/zhangleino1/learn-admin-web
+
+# 项目部署说明
+
+1）MySQL 数据库
+
+- 新建数据库 learn；
+- 下载 doc 目录下的 learn.sql 文件，将数据表导入到该数据库下。
+
+2）导入项目
+
+- 将 learn 目录导入到 Intellij IDEA 中；
+- 等待项目构建完成；
+- 打开 learn-admin/resources 目录下的 application-dev.yml，配置你自己的 datasource 的 username 和 password
+- 打开 learn-web/resources 目录下的 application-dev.yml，配置你自己的 datasource 的 username 和 password
+
+3）启动项目
+
+- 运行 learn-admin 模块中的 LearnAdminBootstrap.java，测试地址：http://localhost:8081/swagger-ui/index.html
+- 运行 learn-web 模块中的 LearnWebBootstrap.java，测试地址：http://localhost:8080/swagger-ui/index.html
 
 
 
