@@ -6,22 +6,23 @@
 
 # 项目结构介绍
 
-## 后台
-| 项目名 | 作用 | 地址 |
-| --- | --- |--- |
-| learn-mbg | MyBatis-Plus 根据数据库表直接生成的实体类| |
-| learn-common | 异常定义、JSON 格式、错误码定义等等 | |
-| learn-web | 针对用户的 Web 前端 | http://localhost:8080/swagger-ui/index.html |
-| learn-admin | 针对网站管理员的 Web 后端 | http://localhost:8081/swagger-ui/index.html|
+
+| 项目名 | 作用 | 
+| --- | --- |
+| learn-mbg | MyBatis-Plus 根据数据库表直接生成的实体类| 
+| learn-common | 异常定义、JSON 格式、错误码定义等等 | 
+| learn-web | 针对用户的 Web 前端 |  
+| learn-admin | 针对网站管理员的 Web 后端 | 
+| learn-admin-web | 针对网站管理员的 Web 前端 | 
+
+用户的 Web 前端体验地址：http://localhost:8080/swagger-ui/index.html
+管理员的 Web 后端后端体验地址：http://localhost:8081/swagger-ui/index.html
+前端体验地址：https://github.com/zhangleino1/learn-admin-web
 
 
-## 前端
-
-| 项目名 | 作用 | 地址 |
-| --- | --- | --- |
-| learn-admin-web | 针对网站管理员的 Web 前端 | https://github.com/zhangleino1/learn-admin-web |
 
 # 后端技术
+
 | 技术 | 说明 | 官网 |
 | --- | --- | --- |
 | Spring Boot | 容器+MVC框架 | [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot) |
