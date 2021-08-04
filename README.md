@@ -35,6 +35,20 @@
 - 运行 learn-admin 模块中的 LearnAdminBootstrap.java，测试地址：http://localhost:8081/swagger-ui/index.html
 - 运行 learn-web 模块中的 LearnWebBootstrap.java，测试地址：http://localhost:8080/swagger-ui/index.html
 
+4）针对 learn-admin-web 模块
+
+该模块需要你本地环境安装 yarn、node 和 git，我们的技术栈基于 ES2015+、Vue、Antd，提前学习这些知识会非常有帮助。
+
+- 进入该模块的目录下
+- 执行 `yarn install`(可能你会遇到网络问题，需要科学上网，另外多把安装时候的错误信息进行搜索，寻找解决方案；如果实在不行，请微信联系我们（qing_geee），备注 lean)
+ - 大致解决思路
+ - 针对 macOS 系统
+ - 重新安装 homebrew，使用国内镜像 `/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"`
+ - 安装成功后，重新安装 yarn，使用命令 `brew install yarn`，使用 `yarn --version` 查看安装后的版本
+ - 重新执行 `yarn install` 命令
+- 这个过程需要保持耐心（嗯，来一包华子压压惊） 
+
+
 
 
 # 后端技术
