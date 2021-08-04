@@ -1,9 +1,9 @@
 spring:
   datasource:
-    username: root
-    password: 123
+    username: learn
+    password: pet8nwhBbinRyrNB
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.30.244:3306/learn?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://118.190.99.232:3306/learn?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       #初始化连接池大小

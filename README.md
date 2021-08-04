@@ -42,11 +42,19 @@
 - 进入该模块的目录下
 - 执行 `yarn install`(可能你会遇到网络问题，需要科学上网，另外多把安装时候的错误信息进行搜索，寻找解决方案；如果实在不行，请微信联系我们（qing_geee），备注 lean)
  - 大致解决思路
- - 针对 macOS 系统
+ - 针对 macOS 系统（Windows 大差不差）
  - 重新安装 homebrew，使用国内镜像 `/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"`
  - 安装成功后，重新安装 yarn，使用命令 `brew install yarn`，使用 `yarn --version` 查看安装后的版本
  - 重新执行 `yarn install` 命令
+ - 如果还是慢（是因为镜像的问题）
+ - 执行 `yarn config set registry https://registry.npm.taobao.org/` 将镜像切换到阿里旗下
+ - yrm 可以快速切换镜像，使用命令 `cnpm install -g yrm` 安装 yrm
+ - 使用 `yrm ls` 列出当前可用的所有镜像
+ - 使用 `yrm use taobao` 快速切换
+ - 使用 `yrm test taobao` 测试访问速度
+ - 再次执行 `yarn install`
 - 这个过程需要保持耐心（嗯，来一包华子压压惊） 
+- 
 
 
 

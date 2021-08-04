@@ -10,7 +10,7 @@ spring:
     time-zone: GMT+8
 
 server:
-  port: 8080
+  port: 9002
 
 mybatis-plus:
   mapper-locations:
