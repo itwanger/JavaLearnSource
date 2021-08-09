@@ -235,6 +235,50 @@ const linkRoute = {
   ],
 };
 
+const learnSiteRoute = {
+  path: '/learnsite',
+  name: 'LearnSite',
+  meta: {
+    title: 'routes.demo.leansite.learnsite',
+    icon: 'ion:ios-paper-outline',
+  },
+
+  children: [
+    {
+      path: 'site',
+      name: 'site',
+      component: '/demo/learnsite/site/index',
+      meta: {
+        title: 'routes.demo.learnsite.site',
+      },
+    },
+    {
+      path: 'termtaxonomy',
+      name: 'termtaxonomy',
+      component: '/demo/learnsite/termtaxonomy/index',
+      meta: {
+        title: 'routes.demo.learnsite.termtaxonomy',
+      },
+    },
+    {
+      path: 'posts',
+      name: 'posts',
+      component: '/demo/learnsite/posts/index',
+      meta: {
+        title: 'routes.demo.learnsite.posts',
+      },
+    },
+    {
+      path: 'comments',
+      name: 'comments',
+      component: '/demo/learnsite/comments/index',
+      meta: {
+        title: 'routes.demo.learnsite.comments',
+      },
+    },
+  ],
+};
+
 export default [
   {
     url: '/basic-api/getMenuList',
@@ -254,11 +298,11 @@ export default [
       switch (id) {
         case '1':
           dashboardRoute.redirect = dashboardRoute.path + '/' + dashboardRoute.children[0].path;
-          menu = [dashboardRoute, authRoute, levelRoute, sysRoute, linkRoute];
+          menu = [dashboardRoute, authRoute, levelRoute, sysRoute, linkRoute, learnSiteRoute];
           break;
         case '2':
           dashboardRoute.redirect = dashboardRoute.path + '/' + dashboardRoute.children[1].path;
-          menu = [dashboardRoute, authRoute, levelRoute, linkRoute];
+          menu = [dashboardRoute, authRoute, levelRoute, linkRoute, learnSiteRoute];
           break;
         default:
           menu = [];
