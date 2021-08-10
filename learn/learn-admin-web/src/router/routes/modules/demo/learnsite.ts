@@ -17,7 +17,7 @@ const learnsite: AppRouteModule = {
     {
       path: 'site',
       name: 'site',
-      component: () => import('/@/views/learnsite/site/index.vue'),
+      component: () => import('/@/views/demo/learnsite/site/index.vue'),
       meta: {
         // affix: true,
         title: t('routes.learnsite.site'),
@@ -26,7 +26,7 @@ const learnsite: AppRouteModule = {
     {
       path: 'termtaxonomy',
       name: 'termtaxonomy',
-      component: () => import('/@/views/learnsite/termtaxonomy/index.vue'),
+      component: () => import('/@/views/demo/learnsite/termtaxonomy/index.vue'),
       meta: {
         // affix: true,
         title: t('routes.learnsite.termtaxonomy'),
@@ -35,7 +35,7 @@ const learnsite: AppRouteModule = {
     {
       path: 'posts',
       name: 'posts',
-      component: () => import('/@/views/learnsite/posts/index.vue'),
+      component: () => import('/@/views/demo/learnsite/posts/index.vue'),
       meta: {
         // affix: true,
         title: t('routes.learnsite.posts'),
@@ -44,7 +44,7 @@ const learnsite: AppRouteModule = {
     {
       path: 'comments',
       name: 'comments',
-      component: () => import('/@/views/learnsite/comments/index.vue'),
+      component: () => import('/@/views/demo/learnsite/comments/index.vue'),
       meta: {
         // affix: true,
         title: t('routes.learnsite.comments'),
