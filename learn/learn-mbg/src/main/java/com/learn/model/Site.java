@@ -41,8 +41,8 @@ public class Site implements Serializable {
     private String siteDesc;
 
     @TableField("DOMAIN")
-    @NotBlank(message = "站点名称不能为空")
-    @ApiModelProperty("站点名称")
+    @NotBlank(message = "站点域名不能为空")
+    @ApiModelProperty("站点域名")
     private String domain;
 
     @TableField("TEL_NAME")
