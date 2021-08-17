@@ -72,9 +72,9 @@ public class PostsController {
     @RequestMapping(value = "/queryPageable",method=RequestMethod.GET)
     @ResponseBody
     @ApiOperation("分页查询")
-    public ResultObject<Map<String,Object>> queryPageable(long pageSize, long pageNumber){
+    public ResultObject<Map<String,Object>> queryPageable(long pageSize, long page){
         Map<String,Object> map = new HashMap<>();
-        Page<Posts> postsPage = new Page<>(pageNumber,pageSize);
+        Page<Posts> postsPage = new Page<>(page,pageSize);
         IPage<Posts> postsIPage = postsService.page(postsPage);
         map.put("list",postsIPage.getRecords());
         map.put("total",postsIPage.getTotal());

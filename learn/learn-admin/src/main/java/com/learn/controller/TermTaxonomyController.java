@@ -69,9 +69,9 @@ public class TermTaxonomyController {
     @RequestMapping(value = "/queryPageable",method=RequestMethod.GET)
     @ResponseBody
     @ApiOperation("分页查询")
-    public ResultObject<Map<String,Object>> queryPageable(long pageSize, long pageNumber){
+    public ResultObject<Map<String,Object>> queryPageable(long pageSize, long page){
         Map<String,Object> map = new HashMap<>();
-        Page<TermTaxonomy> termTaxonomyPage = new Page<>(pageNumber,pageSize);
+        Page<TermTaxonomy> termTaxonomyPage = new Page<>(page,pageSize);
         IPage<TermTaxonomy> termTaxonomyIPage = termTaxonomyService.page(termTaxonomyPage);
         map.put("list",termTaxonomyIPage.getRecords());
         map.put("total",termTaxonomyIPage.getTotal());

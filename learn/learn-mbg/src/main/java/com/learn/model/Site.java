@@ -28,29 +28,29 @@ public class Site implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "SITE_ID", type = IdType.AUTO)
+    @TableId(value = "site_id", type = IdType.AUTO)
     private Long siteId;
 
-    @TableField("SITE_NAME")
+    @TableField("site_name")
     @ApiModelProperty("站点名称")
     @NotBlank(message = "站点名称不能为空")
     private String siteName;
 
-    @TableField("SITE_DESC")
+    @TableField("site_desc")
     @ApiModelProperty("站点介绍")
     private String siteDesc;
 
-    @TableField("DOMAIN")
+    @TableField("domain")
     @NotBlank(message = "站点域名不能为空")
     @ApiModelProperty("站点域名")
     private String domain;
 
-    @TableField("TEL_NAME")
+    @TableField("tel_name")
     @NotBlank(message = "模板方案不能为空")
     @ApiModelProperty("模板方案")
     private String telName;
 
-    @TableField("STATIC_DIR")
+    @TableField("static_dir")
     @ApiModelProperty("静态目录")
     private String staticDir;
 

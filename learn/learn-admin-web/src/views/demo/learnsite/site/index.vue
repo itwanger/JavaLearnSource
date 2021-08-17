@@ -23,20 +23,25 @@
         />
       </template>
     </BasicTable>
+    <RoleDrawer @register="registerDrawer" @success="handleSuccess" />
   </div>
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue';
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
-  import { demoListApi } from '/@/api/demo/table';
+  import { getLearnSiteListApi } from '/@/api/demo/learnSite';
   import { useDrawer } from '/@/components/Drawer';
+  import SiteDrawer from './SiteDrawer.vue';
+  import { columns } from './site.data';
+
   export default defineComponent({
-    components: { BasicTable, TableAction },
+    name: 'SiteManagement',
+    components: { BasicTable, TableAction, SiteDrawer },
     setup() {
       const [registerDrawer, { openDrawer }] = useDrawer();
       const [registerTable, { reload }] = useTable({
         title: '站点列表',
-        api: demoListApi,
+        api: getLearnSiteListApi,
         showTableSetting: true,
         bordered: true,
         showIndexColumn: false,
@@ -47,30 +52,7 @@
           slots: { customRender: 'action' },
           fixed: undefined,
         },
-        columns: [
-          {
-            title: 'ID',
-            dataIndex: 'siteId',
-            fixed: 'left',
-            width: 80,
-          },
-          {
-            title: '站点名称',
-            dataIndex: 'siteName',
-          },
-          {
-            title: '站点介绍',
-            dataIndex: 'siteDesc',
-          },
-          {
-            title: '站点域名',
-            dataIndex: 'telName',
-          },
-          {
-            title: '静态目录',
-            dataIndex: 'staticDir',
-          },
-        ],
+        columns,
       });
 
       function handleCreate() {

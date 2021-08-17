@@ -70,9 +70,9 @@ public class UsersController {
     @RequestMapping(value = "/queryPageable",method=RequestMethod.GET)
     @ResponseBody
     @ApiOperation("分页查询")
-    public ResultObject<Map<String,Object>> queryPageable(long pageSize, long pageNumber){
+    public ResultObject<Map<String,Object>> queryPageable(long pageSize, long page){
         Map<String,Object> map = new HashMap<>();
-        Page<Users> usersPage = new Page<>(pageNumber,pageSize);
+        Page<Users> usersPage = new Page<>(page,pageSize);
         IPage<Users> usersIPage = usersService.page(usersPage);
         map.put("list",usersIPage.getRecords());
         map.put("total",usersIPage.getTotal());

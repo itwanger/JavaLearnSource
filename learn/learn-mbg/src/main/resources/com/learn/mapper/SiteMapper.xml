@@ -4,17 +4,17 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.learn.model.Site">
-        <result column="SITE_ID" property="siteId" />
-        <result column="SITE_NAME" property="siteName" />
-        <result column="SITE_DESC" property="siteDesc" />
-        <result column="DOMAIN" property="domain" />
-        <result column="TEL_NAME" property="telName" />
-        <result column="STATIC_DIR" property="staticDir" />
+        <result column="site_id" property="siteId" />
+        <result column="site_name" property="siteName" />
+        <result column="site_desc" property="siteDesc" />
+        <result column="domain" property="domain" />
+        <result column="tel_name" property="telName" />
+        <result column="static_dir" property="staticDir" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        SITE_ID, SITE_NAME, SITE_DESC, DOMAIN, TEL_NAME, STATIC_DIR
+        site_id, site_name, site_desc, domain, tel_name, static_dir
     </sql>
 
 </mapper>
