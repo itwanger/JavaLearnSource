@@ -2,7 +2,7 @@
  * @description: Request result set
  */
 export enum ResultEnum {
-  SUCCESS = 200,
+  SUCCESS = 0,
   ERROR = 500,
   TIMEOUT = 401,
   VALIDATE_FAILED = 506,
