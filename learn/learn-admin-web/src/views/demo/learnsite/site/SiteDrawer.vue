@@ -1,24 +1,13 @@
 <template>
   <BasicDrawer
     v-bind="$attrs"
-    @register="registerDrawer"
+    @register="siteDrawer"
     showFooter
     :title="getTitle"
     width="500px"
     @ok="handleSubmit"
   >
-    <BasicForm @register="registerForm">
-      <template #menu="{ model, field }">
-        <BasicTree
-          v-model:value="model[field]"
-          :treeData="treeData"
-          :replaceFields="{ title: 'menuName', key: 'id' }"
-          checkable
-          toolbar
-          title="站点"
-        />
-      </template>
-    </BasicForm>
+    <BasicForm @register="registerForm" />
   </BasicDrawer>
 </template>
 <script lang="ts">
@@ -40,7 +29,7 @@
         showActionButtonGroup: false,
       });
 
-      const [registerDrawer, { setDrawerProps, closeDrawer }] = useDrawerInner(async (data) => {
+      const [siteDrawer, { setDrawerProps, closeDrawer }] = useDrawerInner(async (data) => {
         resetFields();
         setDrawerProps({ confirmLoading: false });
         isUpdate.value = !!data?.isUpdate;
@@ -68,7 +57,7 @@
       }
 
       return {
-        registerDrawer,
+        siteDrawer,
         registerForm,
         getTitle,
         handleSubmit,

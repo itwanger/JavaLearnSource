@@ -73,7 +73,7 @@ public class TermTaxonomyController {
         Map<String,Object> map = new HashMap<>();
         Page<TermTaxonomy> termTaxonomyPage = new Page<>(page,pageSize);
         IPage<TermTaxonomy> termTaxonomyIPage = termTaxonomyService.page(termTaxonomyPage);
-        map.put("list",termTaxonomyIPage.getRecords());
+        map.put("items",termTaxonomyIPage.getRecords());
         map.put("total",termTaxonomyIPage.getTotal());
         return ResultObject.success(map);
     }

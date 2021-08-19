@@ -74,7 +74,7 @@ public class UsersController {
         Map<String,Object> map = new HashMap<>();
         Page<Users> usersPage = new Page<>(page,pageSize);
         IPage<Users> usersIPage = usersService.page(usersPage);
-        map.put("list",usersIPage.getRecords());
+        map.put("items",usersIPage.getRecords());
         map.put("total",usersIPage.getTotal());
         return ResultObject.success(map);
     }

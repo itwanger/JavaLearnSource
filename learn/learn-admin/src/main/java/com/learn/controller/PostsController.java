@@ -76,7 +76,7 @@ public class PostsController {
         Map<String,Object> map = new HashMap<>();
         Page<Posts> postsPage = new Page<>(page,pageSize);
         IPage<Posts> postsIPage = postsService.page(postsPage);
-        map.put("list",postsIPage.getRecords());
+        map.put("items",postsIPage.getRecords());
         map.put("total",postsIPage.getTotal());
         return ResultObject.success(map);
     }

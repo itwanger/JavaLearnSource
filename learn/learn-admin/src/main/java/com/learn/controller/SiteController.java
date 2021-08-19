@@ -76,7 +76,7 @@ public class SiteController {
         Map<String,Object> map = new HashMap<>();
         Page<Site> sitePage = new Page<>(page,pageSize);
         IPage<Site> siteIPage = siteService.page(sitePage);
-        map.put("list",siteIPage.getRecords());
+        map.put("items",siteIPage.getRecords());
         map.put("total",siteIPage.getTotal());
         return ResultObject.success(map);
     }

@@ -62,6 +62,18 @@ const transform: AxiosTransform = {
       case ResultEnum.TIMEOUT:
         timeoutMsg = t('sys.api.timeoutMessage');
         break;
+      case ResultEnum.ERROR:
+        timeoutMsg = t('sys.api.errMsg500');
+        break;
+      case ResultEnum.VALIDATE_FAILED:
+        timeoutMsg = t('sys.api.errMsg506');
+        break;
+      case ResultEnum.UNAUTHORIZED:
+        timeoutMsg = t('sys.api.errMsg401');
+        break;
+      case ResultEnum.FORBIDDEN:
+        timeoutMsg = t('sys.api.errMsg403');
+        break;
       default:
         if (message) {
           timeoutMsg = message;

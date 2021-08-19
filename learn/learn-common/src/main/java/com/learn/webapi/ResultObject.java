@@ -6,18 +6,14 @@ package com.learn.webapi;
 public class ResultObject<T> {
     private long code;
     private String message;
-    private T data;
-    private String state;
-    private String error;
+    private T result;
     protected ResultObject() {
     }
 
-    protected ResultObject(long code, String message, T data) {
+    protected ResultObject(long code, String message, T result) {
         this.code = code;
         this.message = message;
-        this.data = data;
-        this.state = state;
-        this.error = error;
+        this.result = result;
     }
 
     /**
@@ -116,27 +112,12 @@ public class ResultObject<T> {
         this.message = message;
     }
 
-    public T getData() {
-        return data;
+    public T getResult() {
+        return result;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setResult(T result) {
+        this.result = result;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
 }

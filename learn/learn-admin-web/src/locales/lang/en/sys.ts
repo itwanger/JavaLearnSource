@@ -21,6 +21,7 @@ export default {
     errMsg503: 'The service is unavailable, the server is temporarily overloaded or maintained!',
     errMsg504: 'Network timeout!',
     errMsg505: 'The http version does not support the request!',
+    errMsg506: '参数检验失败!',
   },
   app: {
     logoutTip: 'Reminder',
