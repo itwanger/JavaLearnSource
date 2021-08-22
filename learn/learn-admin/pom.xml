@@ -54,7 +54,8 @@
                 <configuration>
                     <!--fork :  如果没有该项配置，肯呢个devtools不会起作用，即应用不会restart   这个要手动加进去 -->
                     <fork>true</fork>
-                    <skip>true</skip>
+                  <!--  <skip>true</skip>
+                    <mainClass>com.learn.LearnAdminBootstrap</mainClass>-->
                 </configuration>
             </plugin>
             <plugin>
@@ -62,6 +63,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <skip>true</skip>
+                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
         </plugins>
