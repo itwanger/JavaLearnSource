@@ -125,7 +125,7 @@ public class LearnWebFacadeController {
 //     return channel(path, 1, request, response, model);
     }
 
-   
+
 
     /**
      * 栏目动态分页入口(外网)
