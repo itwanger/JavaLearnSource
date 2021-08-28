@@ -103,9 +103,9 @@
 ![image.png](https://cdn.nlark.com/yuque/0/2021/png/354158/1618128832822-2b27668a-a983-4dc8-8c1a-1001eb0a84e9.png#align=left&display=inline&height=23&margin=%5Bobject%20Object%5D&name=image.png&originHeight=46&originWidth=1046&size=42299&status=done&style=none&width=523)
 # 进度
 ## 2021.8.23-2021.8.28
-增加前端访问控制入口，使用策略模式设计前端访问栏目、首页、内容的后台才处理逻辑。
-和小伙伴们讨论后，采用更优化的前端方案vue-element-admin。
-谷明大神的加入，如虎添翼，他专门负责前端，降低了小伙伴的工作量。
+- 增加前端访问控制入口，使用策略模式设计前端访问栏目、首页、内容的后台才处理逻辑。
+- 和小伙伴们讨论后，采用更优化的前端方案vue-element-admin。
+- 谷明大神的加入，如虎添翼，他专门负责前端，降低了小伙伴的工作量。
 
 
 # 数据库设计
