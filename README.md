@@ -83,7 +83,7 @@
 | Vuex | 全局状态管理框架 | [https://vuex.vuejs.org/](https://vuex.vuejs.org/) |
 | ant design vue | 前端UI框架 | [https://www.antdv.com/](https://www.antdv.com/) |
 | Axios | 前端HTTP框架 | [https://github.com/axios/axios](https://github.com/axios/axios) |
-| vue-vben-admin | 开箱即用的中后台前端/设计解决方案 | [https://github.com/anncwb/vue-vben-admin](https://github.com/anncwb/vue-vben-admin) |
+| vue-element-admin | 开箱即用的中后台前端/设计解决方案 | [https://github.com/PanJiaChen/vue-element-admin](https://github.com/anncwb/vue-vben-admin) |
 
 
 
