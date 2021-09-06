@@ -160,10 +160,12 @@ export default {
         this.$refs.password.focus()
       })
     },
+    // 登陆提交从这里开始
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
+          // 调用store/user.js中的actions中的login方法
           this.$store.dispatch('user/login', this.loginForm)
             .then(() => {
               this.$router.push({ path: this.redirect || '/', query: this.otherQuery })

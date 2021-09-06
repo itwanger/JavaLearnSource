@@ -7,10 +7,11 @@ Vue.use(Router)
 import Layout from '@/layout'
 
 /* Router Modules */
-import componentsRouter from './modules/components'
-import chartsRouter from './modules/charts'
+// import componentsRouter from './modules/components'
+// import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
-import nestedRouter from './modules/nested'
+// import nestedRouter from './modules/nested'
+import systemRouter from './modules/systemSettings'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -34,7 +35,9 @@ import nestedRouter from './modules/nested'
  */
 
 /**
- * constantRoutes
+ * constantRoutes 写死的静态路由数据
+ * @description 原框架写死的路由
+ * 2021-08-29 17:32:15 修改为只有系统管理菜单
  * a base page that does not have permission requirements
  * all roles can be accessed
  */
@@ -83,6 +86,7 @@ export const constantRoutes = [
       }
     ]
   },
+  systemRouter,
   {
     path: '/documentation',
     component: Layout,
@@ -185,9 +189,9 @@ export const asyncRoutes = [
   },
 
   /** when your routing map is too long, you can split it into small modules **/
-  componentsRouter,
-  chartsRouter,
-  nestedRouter,
+  // componentsRouter,
+  // chartsRouter,
+  // nestedRouter,
   tableRouter,
 
   {
@@ -400,6 +404,7 @@ export const asyncRoutes = [
   { path: '*', redirect: '/404', hidden: true }
 ]
 
+// 构建写死的静态路由
 const createRouter = () => new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),

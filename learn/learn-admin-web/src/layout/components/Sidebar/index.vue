@@ -28,7 +28,8 @@ export default {
   components: { SidebarItem, Logo },
   computed: {
     ...mapGetters([
-      'permission_routes',
+      // TODO: 需要改为从后台API中根据用户信息获取用户可以看到的菜单
+      'permission_routes', // 从store的Getter中获取写死的菜单
       'sidebar'
     ]),
     activeMenu() {

@@ -11,11 +11,12 @@ export function isExternal(path) {
 }
 
 /**
- * @param {string} str
- * @returns {Boolean}
+ * @description 用来控制写死的用户的验证
+ * @param {string} str 前端写死的用户名
+ * @returns {Boolean} 判断是否通过验证，通过返回true，不通过返回false
  */
 export function validUsername(str) {
-  const valid_map = ['admin', 'editor']
+  const valid_map = ['admin', 'editor', 'visitor']
   return valid_map.indexOf(str.trim()) >= 0
 }
 
