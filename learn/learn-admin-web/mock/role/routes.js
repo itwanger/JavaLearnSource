@@ -1,7 +1,7 @@
 // Just a mock data
 
 const constantRoutes = [
-  {
+  { // 默认页面 跳转 src/layout/index.vue
     path: '/redirect',
     component: 'layout/Layout',
     hidden: true,
@@ -12,27 +12,27 @@ const constantRoutes = [
       }
     ]
   },
-  {
+  { // 登陆
     path: '/login',
     component: 'views/login/index',
     hidden: true
   },
-  {
+  { // 登陆验证跳转
     path: '/auth-redirect',
     component: 'views/login/auth-redirect',
     hidden: true
   },
-  {
+  { // 404页面
     path: '/404',
     component: 'views/error-page/404',
     hidden: true
   },
-  {
+  { // 401页面
     path: '/401',
     component: 'views/error-page/401',
     hidden: true
   },
-  {
+  { // 一级菜单：首页——默认页面
     path: '',
     component: 'layout/Layout',
     redirect: 'dashboard',
@@ -45,7 +45,7 @@ const constantRoutes = [
       }
     ]
   },
-  {
+  { // 一级菜单：文档
     path: '/documentation',
     component: 'layout/Layout',
     children: [
@@ -57,7 +57,7 @@ const constantRoutes = [
       }
     ]
   },
-  {
+  { // 一级菜单：引导页
     path: '/guide',
     component: 'layout/Layout',
     redirect: '/guide/index',
@@ -72,8 +72,9 @@ const constantRoutes = [
   }
 ]
 
+// 根据权限数据动态加载的菜单
 const asyncRoutes = [
-  {
+  { // 一级菜单：权限测试页
     path: '/permission',
     component: 'layout/Layout',
     redirect: '/permission/index',
@@ -113,7 +114,7 @@ const asyncRoutes = [
     ]
   },
 
-  {
+  { // 一级菜单：图标
     path: '/icon',
     component: 'layout/Layout',
     children: [
@@ -126,7 +127,7 @@ const asyncRoutes = [
     ]
   },
 
-  {
+  { // 一级菜单：组件
     path: '/components',
     component: 'layout/Layout',
     redirect: 'noRedirect',
@@ -222,7 +223,7 @@ const asyncRoutes = [
       }
     ]
   },
-  {
+  { // 一级菜单：图表
     path: '/charts',
     component: 'layout/Layout',
     redirect: 'noRedirect',
@@ -252,7 +253,7 @@ const asyncRoutes = [
       }
     ]
   },
-  {
+  { // 一级菜单：路由嵌套
     path: '/nested',
     component: 'layout/Layout',
     redirect: '/nested/menu1/menu1-1',
@@ -313,7 +314,7 @@ const asyncRoutes = [
     ]
   },
 
-  {
+  { // 一级菜单：综合实例
     path: '/example',
     component: 'layout/Layout',
     redirect: '/example/list',
@@ -345,7 +346,7 @@ const asyncRoutes = [
     ]
   },
 
-  {
+  { // 一级菜单：tab
     path: '/tab',
     component: 'layout/Layout',
     children: [
@@ -358,7 +359,7 @@ const asyncRoutes = [
     ]
   },
 
-  {
+  { // 一级菜单：错误页面
     path: '/error',
     component: 'layout/Layout',
     redirect: 'noRedirect',
@@ -383,7 +384,7 @@ const asyncRoutes = [
     ]
   },
 
-  {
+  { // 一级菜单：错误日志
     path: '/error-log',
     component: 'layout/Layout',
     redirect: 'noRedirect',
@@ -397,7 +398,7 @@ const asyncRoutes = [
     ]
   },
 
-  {
+  { // 一级菜单：Excel
     path: '/excel',
     component: 'layout/Layout',
     redirect: '/excel/export-excel',
@@ -434,7 +435,7 @@ const asyncRoutes = [
     ]
   },
 
-  {
+  { // 一级菜单：Zip
     path: '/zip',
     component: 'layout/Layout',
     redirect: '/zip/download',
@@ -450,7 +451,7 @@ const asyncRoutes = [
     ]
   },
 
-  {
+  { // 一级菜单：pdf
     path: '/pdf',
     component: 'layout/Layout',
     redirect: '/pdf/index',
@@ -469,7 +470,7 @@ const asyncRoutes = [
     hidden: true
   },
 
-  {
+  { // 一级菜单：主题
     path: '/theme',
     component: 'layout/Layout',
     redirect: 'noRedirect',
@@ -483,7 +484,7 @@ const asyncRoutes = [
     ]
   },
 
-  {
+  { // 一级菜单：clipboard
     path: '/clipboard',
     component: 'layout/Layout',
     redirect: 'noRedirect',
@@ -497,7 +498,7 @@ const asyncRoutes = [
     ]
   },
 
-  {
+  { // 一级菜单：国际化
     path: '/i18n',
     component: 'layout/Layout',
     children: [
@@ -510,7 +511,7 @@ const asyncRoutes = [
     ]
   },
 
-  {
+  { // 一级菜单：外链
     path: 'external-link',
     component: 'layout/Layout',
     children: [

@@ -36,7 +36,17 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    before: require('./mock/mock-server.js')
+    before: require('./mock/mock-server.js'),
+    proxy: {
+      '/api': {
+        target: 'https://localhost:9002', // API服务器的地址
+        ws: false, // 代理websockets
+        changeOrigin: true, // 虚拟的站点需要更管origin
+        pathRewrite: { // 重写路径 比如'/api/aaa/ccc'重写为'/aaa/ccc'
+          '^/api': ''
+        }
+      }
+    }
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
@@ -46,7 +56,9 @@ module.exports = {
       alias: {
         '@': resolve('src')
       }
-    }
+    },
+    // 配置vscode中调试
+    devtool: 'source-map'
   },
   chainWebpack(config) {
     // it can improve the speed of the first screen, it is recommended to turn on preload

@@ -29,9 +29,9 @@ const mutations = {
 }
 
 const actions = {
-  // user login
+  // 从views/login/index.vue的handleLogin方法调用过来
   login({ commit }, userInfo) {
-    const { username, password } = userInfo
+    const { username, password } = userInfo // 知识点：ES6解构赋值，可参考网址：https://www.runoob.com/w3cnote/deconstruction-assignment.html
     return new Promise((resolve, reject) => {
       login({ username: username.trim(), password: password }).then(response => {
         const { data } = response
@@ -102,7 +102,7 @@ const actions = {
     })
   },
 
-  // dynamically modify permissions
+  // dynamically modify permissions 根据角色，动态改变权限方法
   async changeRoles({ commit, dispatch }, role) {
     const token = role + '-token'
 

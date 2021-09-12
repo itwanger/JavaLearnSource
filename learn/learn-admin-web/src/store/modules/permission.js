@@ -14,6 +14,7 @@ function hasPermission(roles, route) {
 }
 
 /**
+ * 根据角色过滤路由
  * Filter asynchronous routing tables by recursion
  * @param routes asyncRoutes
  * @param roles
@@ -51,6 +52,7 @@ const actions = {
     return new Promise(resolve => {
       let accessedRoutes
       if (roles.includes('admin')) {
+        // 根据角色加入写死的路由，asyncRoutes应该是请求回来的数据
         accessedRoutes = asyncRoutes || []
       } else {
         accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
