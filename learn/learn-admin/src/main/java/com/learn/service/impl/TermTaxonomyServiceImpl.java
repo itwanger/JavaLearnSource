@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- * 分类 服务实现类
+ * 栏目 服务实现类
  * </p>
  *
  * @author 石磊
- * @since 2021-05-22
+ * @since 2021-09-12
  */
 @Service
 public class TermTaxonomyServiceImpl extends ServiceImpl<TermTaxonomyMapper, TermTaxonomy> implements ITermTaxonomyService {
