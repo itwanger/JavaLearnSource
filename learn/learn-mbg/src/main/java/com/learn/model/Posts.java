@@ -1,10 +1,7 @@
 package com.learn.model;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
-
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -12,16 +9,13 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
 /**
  * <p>
  * 文章
  * </p>
  *
  * @author 石磊
- * @since 2021-05-22
+ * @since 2021-09-12
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -38,14 +32,12 @@ public class Posts implements Serializable {
     private Long postAuthor;
 
     @ApiModelProperty(value = "发布时间")
-    @TableField(fill = FieldFill.INSERT)
     private Date postDate;
 
     @ApiModelProperty(value = "正文")
     private String postContent;
 
     @ApiModelProperty(value = "标题")
-    @NotBlank(message = "标题不能为空")
     private String postTitle;
 
     @ApiModelProperty(value = "摘录")
@@ -58,21 +50,18 @@ public class Posts implements Serializable {
     private String commentStatus;
 
     @ApiModelProperty(value = "修改时间")
-    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date postModified;
 
     @ApiModelProperty(value = "排序ID")
     private Integer menuOrder;
 
     @ApiModelProperty(value = "文章类型（post/page等）")
-    @NotBlank(message = "文章类型不能空")
     private String postType;
 
     @ApiModelProperty(value = "评论总数")
     private Long commentCount;
 
     @ApiModelProperty(value = "站点id")
-    @NotNull(message = "站点id为空")
     private Long siteId;
 
 

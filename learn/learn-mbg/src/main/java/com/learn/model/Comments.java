@@ -1,6 +1,5 @@
 package com.learn.model;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -17,7 +16,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author 石磊
- * @since 2021-05-22
+ * @since 2021-09-12
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -47,7 +46,6 @@ public class Comments implements Serializable {
     private String commentAuthorIp;
 
     @ApiModelProperty(value = "评论时间")
-    @TableField(fill = FieldFill.INSERT)
     private Date commentDate;
 
     @ApiModelProperty(value = "评论正文")

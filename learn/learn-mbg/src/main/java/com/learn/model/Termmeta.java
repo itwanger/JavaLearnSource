@@ -10,15 +10,15 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 分类属性
+ * 栏目属性
  * </p>
  *
  * @author 石磊
- * @since 2021-05-22
+ * @since 2021-09-12
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="Termmeta对象", description="分类属性")
+@ApiModel(value="Termmeta对象", description="栏目属性")
 public class Termmeta implements Serializable {
 
     private static final long serialVersionUID = 1L;

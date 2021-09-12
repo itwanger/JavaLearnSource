@@ -10,15 +10,15 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 分类
+ * 栏目
  * </p>
  *
  * @author 石磊
- * @since 2021-05-22
+ * @since 2021-09-12
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="TermTaxonomy对象", description="分类")
+@ApiModel(value="TermTaxonomy对象", description="栏目")
 public class TermTaxonomy implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,9 +35,6 @@ public class TermTaxonomy implements Serializable {
 
     @ApiModelProperty(value = "文章数统计")
     private Long count;
-
-    @ApiModelProperty(value = "分类编码")
-    private String taxonomy;
 
     @ApiModelProperty(value = "站点id")
     private Long siteId;

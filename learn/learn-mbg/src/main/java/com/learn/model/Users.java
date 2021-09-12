@@ -1,10 +1,7 @@
 package com.learn.model;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
-
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -18,7 +15,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author 石磊
- * @since 2021-05-22
+ * @since 2021-09-12
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -47,7 +44,6 @@ public class Users implements Serializable {
     private String userUrl;
 
     @ApiModelProperty(value = "注册时间")
-    @TableField(fill = FieldFill.INSERT)
     private Date userRegistered;
 
     @ApiModelProperty(value = "激活码")
@@ -59,8 +55,8 @@ public class Users implements Serializable {
     @ApiModelProperty(value = "显示名称")
     private String displayName;
 
-    @ApiModelProperty(value = "站点id")
-    private Long siteId;
+    @ApiModelProperty(value = "用户类型 0 :后台 1：前端")
+    private Integer userType;
 
 
 }
