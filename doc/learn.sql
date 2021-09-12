@@ -6,6 +6,10 @@ drop table if exists comments;
 
 drop table if exists links;
 
+drop table if exists post_tag;
+
+drop table if exists post_tag_relation;
+
 drop table if exists postmeta;
 
 drop table if exists posts;
@@ -17,6 +21,8 @@ drop table if exists term_relationships;
 drop table if exists term_taxonomy;
 
 drop table if exists termmeta;
+
+drop table if exists user_site;
 
 drop table if exists usermeta;
 
@@ -49,7 +55,7 @@ create table comment_meta
    meta_value           longtext comment '键值',
    primary key (meta_id)
 )
- ;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 alter table comment_meta comment '文章评论额外信息表';
 
@@ -74,7 +80,7 @@ create table comments
    site_id              bigint(20) comment '站点id',
    primary key (comment_ID)
 )
- ;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 alter table comments comment '评论表';
 
@@ -94,9 +100,37 @@ create table links
    site_id              bigint(20) comment '站点id',
    primary key (link_id)
 )
- ;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 alter table links comment '链接信息表';
+
+/*==============================================================*/
+/* Table: post_tag                                              */
+/*==============================================================*/
+create table post_tag
+(
+   post_id              bigint(20) unsigned not null auto_increment comment 'ID',
+   description          longtext comment '标签名称',
+   site_id              bigint(20) comment '站点id',
+   primary key (post_id)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+alter table post_tag comment '标签表';
+
+/*==============================================================*/
+/* Table: post_tag_relation                                     */
+/*==============================================================*/
+create table post_tag_relation
+(
+   object_id            bigint(20) unsigned not null default 0 comment '对应文章ID',
+   post_tag_id          bigint(20) unsigned not null default 0 comment '标签ID',
+   term_order           int(11) not null default 0 comment '排序',
+   primary key (object_id, post_tag_id)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+alter table post_tag_relation comment '标签文章关系表';
 
 /*==============================================================*/
 /* Table: postmeta                                              */
@@ -109,7 +143,7 @@ create table postmeta
    meta_value           longtext comment '键值',
    primary key (meta_id)
 )
- ;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 alter table postmeta comment '文章属性表';
 
@@ -133,7 +167,7 @@ create table posts
    site_id              bigint(20) comment '站点id',
    primary key (ID)
 )
- ;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 alter table posts comment '文章';
 
@@ -148,7 +182,7 @@ create table site_options
    site_id              bigint(20) comment '站点id',
    primary key (option_id)
 )
- ;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 alter table site_options comment '站点属性配置';
 
@@ -162,7 +196,7 @@ create table term_relationships
    term_order           int(11) not null default 0 comment '排序',
    primary key (object_id, term_taxonomy_id)
 )
- ;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 alter table term_relationships comment '文章属性关系表';
 
@@ -175,13 +209,12 @@ create table term_taxonomy
    description          longtext comment '说明',
    parent               bigint(20) unsigned not null default 0 comment '属父分类方法ID',
    count                bigint(20) not null default 0 comment '文章数统计',
-   taxonomy             varchar(100) comment '分类编码',
    site_id              bigint(20) comment '站点id',
    primary key (term_taxonomy_id)
 )
- ;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
-alter table term_taxonomy comment '分类';
+alter table term_taxonomy comment '栏目';
 
 /*==============================================================*/
 /* Table: termmeta                                              */
@@ -194,9 +227,20 @@ create table termmeta
    meta_value           longtext comment '分类值',
    primary key (meta_id)
 )
- ;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
-alter table termmeta comment '分类属性';
+alter table termmeta comment '栏目属性';
+
+/*==============================================================*/
+/* Table: user_site                                             */
+/*==============================================================*/
+create table user_site
+(
+   user_id              bigint(20) comment '用户id',
+   site_id              bigint(20) comment '站点id'
+);
+
+alter table user_site comment '用户站点关联关系表';
 
 /*==============================================================*/
 /* Table: usermeta                                              */
@@ -209,7 +253,7 @@ create table usermeta
    meta_value           longtext comment '键值',
    primary key (umeta_id)
 )
- ;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 alter table usermeta comment '用户属性';
 
@@ -228,9 +272,9 @@ create table users
    user_activation_key  varchar(255) comment '激活码',
    user_status          int(11) not null default 0 comment '用户状态',
    display_name         varchar(250) comment '显示名称',
-   site_id              bigint(20) comment '站点id',
+   user_type            int(1) comment '用户类型 0 :后台 1：前端',
    primary key (ID)
 )
- ;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 alter table users comment '用户表';
