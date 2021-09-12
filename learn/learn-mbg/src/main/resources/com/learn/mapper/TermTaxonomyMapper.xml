@@ -8,13 +8,12 @@
         <result column="description" property="description" />
         <result column="parent" property="parent" />
         <result column="count" property="count" />
-        <result column="taxonomy" property="taxonomy" />
         <result column="site_id" property="siteId" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        term_taxonomy_id, description, parent, count, taxonomy, site_id
+        term_taxonomy_id, description, parent, count, site_id
     </sql>
 
 </mapper>

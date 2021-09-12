@@ -3,7 +3,7 @@
 <mapper namespace="com.learn.mapper.UsersMapper">
 
     <!-- 通用查询映射结果 -->
-   <!-- <resultMap id="BaseResultMap" type="com.learn.model.Users">
+    <resultMap id="BaseResultMap" type="com.learn.model.Users">
         <id column="ID" property="id" />
         <result column="user_login" property="userLogin" />
         <result column="user_pass" property="userPass" />
@@ -14,12 +14,12 @@
         <result column="user_activation_key" property="userActivationKey" />
         <result column="user_status" property="userStatus" />
         <result column="display_name" property="displayName" />
-        <result column="site_id" property="siteId" />
-    </resultMap>-->
+        <result column="user_type" property="userType" />
+    </resultMap>
 
     <!-- 通用查询结果列 -->
-  <!--  <sql id="Base_Column_List">
-        ID, user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_activation_key, user_status, display_name, site_id
-    </sql>-->
+    <sql id="Base_Column_List">
+        ID, user_login, user_pass, user_nicename, user_email, user_url, user_registered, user_activation_key, user_status, display_name, user_type
+    </sql>
 
 </mapper>

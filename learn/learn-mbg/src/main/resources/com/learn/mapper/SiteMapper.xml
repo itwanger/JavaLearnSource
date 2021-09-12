@@ -4,7 +4,7 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.learn.model.Site">
-        <result column="site_id" property="siteId" />
+        <id column="site_id" property="siteId" />
         <result column="site_name" property="siteName" />
         <result column="site_desc" property="siteDesc" />
         <result column="domain" property="domain" />

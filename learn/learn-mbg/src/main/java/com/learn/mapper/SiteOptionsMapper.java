@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author 石磊
- * @since 2021-05-22
+ * @since 2021-09-12
  */
 public interface SiteOptionsMapper extends BaseMapper<SiteOptions> {
 

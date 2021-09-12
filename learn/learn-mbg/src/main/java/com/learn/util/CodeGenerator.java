@@ -61,11 +61,11 @@ public class CodeGenerator {
         gc.setFileOverride(true);
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/learn?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai");
+        dsc.setUrl("jdbc:mysql://118.190.99.232:3306/learn?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("123");
+        dsc.setUsername("learn");
+        dsc.setPassword("pet8nwhBbinRyrNB");
         mpg.setDataSource(dsc);
         // 包配置
         PackageConfig pc = new PackageConfig();
