@@ -39,11 +39,8 @@ public class SiteController {
     @RequestMapping(value = "/insert",method=RequestMethod.POST)
     @ResponseBody
     @ApiOperation("添加站点")
-    public ResultObject<String> insert(@Valid @RequestBody Site site, ServletRequest request) {
+    public ResultObject<String> insert(@Valid Site site, ServletRequest request) {
 //       throw new ApiException("test");
-        System.out.println("----------------------------到达controller------------------------------");
-        System.out.println(request);
-
         return ResultObject.success(siteService.save(site) ? "保存成功" : "保存失败");
     }
 
