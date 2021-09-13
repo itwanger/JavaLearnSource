@@ -171,5 +171,36 @@ export default {
     tagsView: '开启 Tags-View',
     fixedHeader: '固定 Header',
     sidebarLogo: '侧边栏 Logo'
+  },
+  // 自定义国际化变量
+  // 操作相关
+  operation: {
+    search: '搜索',
+    add: '新增',
+    delete: '删除',
+    edit: '修改',
+    save: '保存',
+    pleaseSelect: '请选择',
+    pleaseInput: '请输入',
+    actions: '操作',
+    cancel: '取消',
+    confirm: '确定',
+    success: '成功',
+    failed: '失败',
+    saveSuccessed: '保存成功',
+    operationSuccessed: '操作成功',
+    saveFailed: '保存失败',
+    operationFailed: '操作失败'
+  },
+  // 站点相关
+  sites: {
+    id: '站点编号',
+    siteName: '站点名称',
+    siteDesc: '站点介绍',
+    domain: '域名',
+    templateGroup: '模板方案',
+    staticDir: '静态化目录',
+    createSite: '新建站点',
+    editSite: '编辑站点'
   }
 }

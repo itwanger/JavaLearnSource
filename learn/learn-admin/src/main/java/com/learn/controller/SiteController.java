@@ -6,10 +6,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletRequest;
 import javax.validation.Valid;
 
 import com.learn.model.Site;
@@ -40,8 +39,11 @@ public class SiteController {
     @RequestMapping(value = "/insert",method=RequestMethod.POST)
     @ResponseBody
     @ApiOperation("添加站点")
-    public ResultObject<String> insert(@Valid Site site) {
+    public ResultObject<String> insert(@Valid @RequestBody Site site, ServletRequest request) {
 //       throw new ApiException("test");
+        System.out.println("----------------------------到达controller------------------------------");
+        System.out.println(request);
+
         return ResultObject.success(siteService.save(site) ? "保存成功" : "保存失败");
     }
 

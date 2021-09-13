@@ -2,8 +2,8 @@ package com.learn;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.learn.mapper.UserMapper;
-import com.learn.model.User;
+import com.learn.mapper.UsersMapper;
+import com.learn.model.Users;
 import com.learn.model.Users;
 import com.learn.service.IUsersService;
 import org.junit.Test;
@@ -22,7 +22,7 @@ import java.util.List;
 public class SampleTest {
 
     @Autowired
-    private UserMapper userMapper;
+    private UsersMapper userMapper;
     @Autowired
     private IUsersService iUsersService;
     private static Logger LOGGER = LoggerFactory.getLogger(SampleTest.class);
