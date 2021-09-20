@@ -10,15 +10,15 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 文章属性关系表
+ * 文章栏目关系表
  * </p>
  *
  * @author 石磊
- * @since 2021-09-12
+ * @since 2021-09-21
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="TermRelationships对象", description="文章属性关系表")
+@ApiModel(value="TermRelationships对象", description="文章栏目关系表")
 public class TermRelationships implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -27,11 +27,14 @@ public class TermRelationships implements Serializable {
     @TableId(value = "object_id", type = IdType.AUTO)
     private Long objectId;
 
-    @ApiModelProperty(value = "对应分类方法ID")
+    @ApiModelProperty(value = "栏目ID")
     private Long termTaxonomyId;
 
     @ApiModelProperty(value = "排序")
     private Integer termOrder;
+
+    @ApiModelProperty(value = "类型,0:文章内容,1:文章链接，2:栏目链接")
+    private Integer type;
 
 
 }

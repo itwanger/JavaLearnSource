@@ -7,11 +7,12 @@
         <id column="object_id" property="objectId" />
         <result column="term_taxonomy_id" property="termTaxonomyId" />
         <result column="term_order" property="termOrder" />
+        <result column="type" property="type" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        object_id, term_taxonomy_id, term_order
+        object_id, term_taxonomy_id, term_order, type
     </sql>
 
 </mapper>

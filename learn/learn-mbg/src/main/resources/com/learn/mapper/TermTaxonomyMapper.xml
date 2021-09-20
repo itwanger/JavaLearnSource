@@ -6,14 +6,13 @@
     <resultMap id="BaseResultMap" type="com.learn.model.TermTaxonomy">
         <id column="term_taxonomy_id" property="termTaxonomyId" />
         <result column="description" property="description" />
-        <result column="parent" property="parent" />
-        <result column="count" property="count" />
+        <result column="parent_id" property="parentId" />
         <result column="site_id" property="siteId" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        term_taxonomy_id, description, parent, count, site_id
+        term_taxonomy_id, description, parent_id, site_id
     </sql>
 
 </mapper>

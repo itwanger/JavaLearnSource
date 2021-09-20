@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author 石磊
- * @since 2021-09-12
+ * @since 2021-09-21
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -30,11 +30,8 @@ public class TermTaxonomy implements Serializable {
     @ApiModelProperty(value = "说明")
     private String description;
 
-    @ApiModelProperty(value = "属父分类方法ID")
-    private Long parent;
-
-    @ApiModelProperty(value = "文章数统计")
-    private Long count;
+    @ApiModelProperty(value = "父栏目id")
+    private Long parentId;
 
     @ApiModelProperty(value = "站点id")
     private Long siteId;
