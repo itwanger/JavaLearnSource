@@ -188,9 +188,12 @@ export default {
     success: '成功',
     failed: '失败',
     saveSuccessed: '保存成功',
-    operationSuccessed: '操作成功',
     saveFailed: '保存失败',
-    operationFailed: '操作失败'
+    operationSuccessed: '操作成功',
+    operationFailed: '操作失败',
+    deleteSuccessed: '删除成功',
+    deleteFailed: '删除失败',
+    systemInfo: '系统提示'
   },
   // 站点相关
   sites: {
@@ -201,6 +204,8 @@ export default {
     templateGroup: '模板方案',
     staticDir: '静态化目录',
     createSite: '新建站点',
-    editSite: '编辑站点'
+    editSite: '编辑站点',
+    // deleteConfirm: '是否确认删除该站点？',特别奇怪的现象，该变量在i18n中不起作用
+    deleteWarning: '是否确认删除该站点？'
   }
 }

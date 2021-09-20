@@ -38,10 +38,10 @@ class SiteOperations {
 
   deleteSite(id) {
     return request({
-      url: '/api/site/delete',
+      url: `/api/site/delete?_=${Math.random()}`,
       method: 'get',
       params: {
-        id
+        siteId: id
       }
     })
   }
