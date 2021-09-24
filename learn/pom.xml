@@ -14,6 +14,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <druid.version>1.1.10</druid.version>
+        <jjwt.version>0.9.0</jjwt.version>
+        <hutool.version>5.4.0</hutool.version>
     </properties>
     <repositories>
         <repository>
@@ -36,6 +38,7 @@
         <module>learn-mbg</module>
         <module>learn-web</module>
         <module>learn-admin</module>
+        <module>learn-security</module>
     </modules>
 
     <parent>
@@ -86,12 +89,33 @@
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
 
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <!--Hutool Java工具包-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
 
+            <!--JWT(Json Web Token)登录支持-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>commons-io</groupId>
