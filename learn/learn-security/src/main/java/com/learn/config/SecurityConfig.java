@@ -1,7 +1,6 @@
 package com.learn.config;
 
 import com.learn.component.*;
-import com.macro.mall.security.component.*;
 import com.learn.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -21,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 /**
  * 对SpringSecurity的配置的扩展，支持自定义白名单资源路径和查询用户逻辑
- * Created by macro on 2019/11/5.
+ *    on 2019/11/5.
  */
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 

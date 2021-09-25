@@ -48,4 +48,18 @@ spring:
         login-password: root
 
 
+  redis:
+    host: 192.168.30.246 # Redis服务器地址
+    database: 0 # Redis数据库索引（默认为0）
+    port: 6379 # Redis服务器连接端口
+    password: # Redis服务器连接密码（默认为空）
+    timeout: 300ms # 连接超时时间（毫秒）
+    lettuce:
+      pool:
+        max-active: 1000
+        min-idle: 0
+        max-idle: 8
+        max-wait: 3000
+
+
 
