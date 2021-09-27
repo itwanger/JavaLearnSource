@@ -9,13 +9,17 @@ import com.learn.webapi.ResultObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +38,10 @@ import java.util.Map;
 public class UsersController {
     @Autowired
     private IUsersService usersService;
+    @Value("${jwt.tokenHeader}")
+    private String tokenHeader;
+    @Value("${jwt.tokenHead}")
+    private String tokenHead;
 
     @RequestMapping(value = "/insert",method= RequestMethod.POST)
     @ResponseBody
@@ -78,5 +86,74 @@ public class UsersController {
         map.put("total",usersIPage.getTotal());
         return ResultObject.success(map);
     }
+
+    @ApiOperation(value = "用户注册")
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @ResponseBody
+    public ResultObject<Users> register(@Validated Users users) {
+        Users umsAdmin = usersService.register(users);
+        if (umsAdmin == null) {
+            return ResultObject.failed();
+        }
+        return ResultObject.success(umsAdmin);
+    }
+
+    @ApiOperation(value = "登录以后返回token")
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @ResponseBody
+    public ResultObject login(@Validated  Users users) {
+        String token = usersService.login(users.getUserLogin(), users.getUserPass());
+        if (token == null) {
+            return ResultObject.validateFailed("用户名或密码错误");
+        }
+        Map<String, String> tokenMap = new HashMap<>();
+        tokenMap.put("token", token);
+        tokenMap.put("tokenHead", tokenHead);
+        return ResultObject.success(tokenMap);
+    }
+
+    @ApiOperation(value = "刷新token")
+    @RequestMapping(value = "/refreshToken", method = RequestMethod.GET)
+    @ResponseBody
+    public ResultObject refreshToken(HttpServletRequest request) {
+        String token = request.getHeader(tokenHeader);
+        String refreshToken = usersService.refreshToken(token);
+        if (refreshToken == null) {
+            return ResultObject.failed("token已经过期！");
+        }
+        Map<String, String> tokenMap = new HashMap<>();
+        tokenMap.put("token", refreshToken);
+        tokenMap.put("tokenHead", tokenHead);
+        return ResultObject.success(tokenMap);
+    }
+
+    @ApiOperation(value = "获取当前登录用户信息")
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    @ResponseBody
+    public ResultObject getAdminInfo(Principal principal) {
+        if(principal==null){
+            return ResultObject.unauthorized(null);
+        }
+        String username = principal.getName();
+        Users users = usersService.getAdminByUsername(username);
+        Map<String, Object> data = new HashMap<>();
+        data.put("username", users.getUserLogin());
+      /*  data.put("menus", roleService.getMenuList(umsAdmin.getId()));
+        data.put("icon", umsAdmin.getIcon());
+        List<UmsRole> roleList = usersService.getRoleList(umsAdmin.getId());
+        if(CollUtil.isNotEmpty(roleList)){
+            List<String> roles = roleList.stream().map(UmsRole::getName).collect(Collectors.toList());
+            data.put("roles",roles);
+        }*/
+        return ResultObject.success(data);
+    }
+
+    @ApiOperation(value = "登出功能")
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @ResponseBody
+    public ResultObject logout() {
+        return ResultObject.success(null);
+    }
+    
 }
 
