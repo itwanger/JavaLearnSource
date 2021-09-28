@@ -22,7 +22,7 @@ public interface IUsersService extends IService<Users> {
     /**
      * 注册功能
      */
-    Users register(Users users);
+    boolean register(Users users);
 
     /**
      * 登录功能
@@ -47,5 +47,7 @@ public interface IUsersService extends IService<Users> {
      * 获取用户信息
      */
     UserDetails loadUserByUsername(String username);
+
+
 
 }

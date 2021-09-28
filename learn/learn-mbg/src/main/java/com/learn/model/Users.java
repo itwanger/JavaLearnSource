@@ -9,6 +9,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * <p>
  * 用户表
@@ -29,12 +31,15 @@ public class Users implements Serializable {
     private Long id;
 
     @ApiModelProperty(value = "登录名")
+    @NotBlank(message="登录名不能为空")
     private String userLogin;
 
     @ApiModelProperty(value = "密码")
+    @NotBlank(message="密码不能为空")
     private String userPass;
 
     @ApiModelProperty(value = "昵称")
+    @NotBlank(message="昵称不能为空")
     private String userNicename;
 
     @ApiModelProperty(value = "Email")

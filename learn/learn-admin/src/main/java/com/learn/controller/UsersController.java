@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.learn.model.Users;
 import com.learn.service.IUsersService;
+import com.learn.util.UserStatus;
+import com.learn.util.UserType;
 import com.learn.webapi.ResultObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -43,13 +45,8 @@ public class UsersController {
     @Value("${jwt.tokenHead}")
     private String tokenHead;
 
-    @RequestMapping(value = "/insert",method= RequestMethod.POST)
-    @ResponseBody
-    @ApiOperation("添加用户")
-    public ResultObject<String> insert(@Valid Users users) {
-        users.setUserRegistered(new Date());
-        return ResultObject.success(usersService.save(users) ? "保存成功" : "保存失败");
-    }
+
+
 
     @RequestMapping(value = "/getById",method=RequestMethod.GET)
     @ResponseBody
@@ -90,12 +87,8 @@ public class UsersController {
     @ApiOperation(value = "用户注册")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public ResultObject<Users> register(@Validated Users users) {
-        Users umsAdmin = usersService.register(users);
-        if (umsAdmin == null) {
-            return ResultObject.failed();
-        }
-        return ResultObject.success(umsAdmin);
+    public ResultObject<String> register(@Validated Users users) {
+        return ResultObject.success(usersService.register(users) ? "保存成功" : "保存失败");
     }
 
     @ApiOperation(value = "登录以后返回token")
