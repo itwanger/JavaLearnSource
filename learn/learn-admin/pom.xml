@@ -21,16 +21,7 @@
 
 
 
-        <dependency>
-            <groupId>com.qingmiaokeji</groupId>
-            <artifactId>learn-security</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.qingmiaokeji</groupId>
-            <artifactId>learn-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
         <dependency>
             <groupId>com.qingmiaokeji</groupId>
             <artifactId>learn-mbg</artifactId>
@@ -41,10 +32,7 @@
             <artifactId>junit</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-        </dependency>
+
 
         <dependency>
             <groupId>org.apache.commons</groupId>

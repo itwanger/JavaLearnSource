@@ -1,4 +1,4 @@
-package com.learn.vo;
+package com.learn.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;

@@ -2,7 +2,7 @@ package com.learn.service;
 
 import com.learn.model.Users;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.learn.vo.UpdateAdminPasswordParam;
+import com.learn.dto.UpdateAdminPasswordParam;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**

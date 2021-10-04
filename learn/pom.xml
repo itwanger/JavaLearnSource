@@ -32,7 +32,6 @@
         </repository>
     </repositories>
 
-
     <modules>
         <module>learn-common</module>
         <module>learn-mbg</module>

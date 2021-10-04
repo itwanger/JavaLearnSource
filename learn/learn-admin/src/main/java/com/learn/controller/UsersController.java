@@ -3,6 +3,8 @@ package com.learn.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.learn.dto.UsersLoginParam;
+import com.learn.dto.UsersParam;
 import com.learn.model.Users;
 import com.learn.service.IUsersService;
 import com.learn.util.UserStatus;
@@ -10,6 +12,7 @@ import com.learn.util.UserType;
 import com.learn.webapi.ResultObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
@@ -87,14 +90,16 @@ public class UsersController {
     @ApiOperation(value = "用户注册")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public ResultObject<String> register(@Validated Users users) {
-        return ResultObject.success(usersService.register(users) ? "保存成功" : "保存失败");
+    public ResultObject<String> register(@Validated UsersParam users) {
+        Users userDto = new Users();
+        BeanUtils.copyProperties(users,userDto);
+        return ResultObject.success(usersService.register(userDto) ? "保存成功" : "保存失败");
     }
 
     @ApiOperation(value = "登录以后返回token")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public ResultObject login(@Validated  Users users) {
+    public ResultObject login(@Validated UsersLoginParam users) {
         String token = usersService.login(users.getUserLogin(), users.getUserPass());
         if (token == null) {
             return ResultObject.validateFailed("用户名或密码错误");

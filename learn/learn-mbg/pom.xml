@@ -66,6 +66,17 @@
             <artifactId>validation-api</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.qingmiaokeji</groupId>
+            <artifactId>learn-security</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qingmiaokeji</groupId>
+            <artifactId>learn-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
 </project>
