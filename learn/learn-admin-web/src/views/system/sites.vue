@@ -100,7 +100,7 @@
 </template>
 
 <script>
-import SiteOperations from '@/api/site'
+import { getSiteList, addSite, updateSite, deleteSite } from '@/api/site'
 import waves from '@/directive/waves' // waves directive
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 import { emptyChecker } from '@/utils/validate'
@@ -174,9 +174,9 @@ export default {
       dialogPvVisible: false,
       pvData: [],
       rules: {
-        siteName: [{ required: true, validator: emptyChecker, message: '站点名称不能为空', trigger: 'blur' }],
-        domain: [{ required: true, validator: emptyChecker, message: '域名不能为空', trigger: 'blur' }],
-        telName: [{ required: true, validator: emptyChecker, message: '模板方案不能为空', trigger: 'blur' }]
+        siteName: [{ required: true, validator: emptyChecker, message: this.$t('sites.validNotEmptySiteName'), trigger: 'blur' }],
+        domain: [{ required: true, validator: emptyChecker, message: this.$t('sites.validNotEmptyDomain'), trigger: 'blur' }],
+        telName: [{ required: true, validator: emptyChecker, message: this.$t('sites.validNotTelName'), trigger: 'blur' }]
       },
       downloadLoading: false
     }
@@ -187,7 +187,7 @@ export default {
   methods: {
     getList() {
       this.listLoading = true
-      SiteOperations.getSiteList(this.listQuery).then(response => {
+      getSiteList(this.listQuery).then(response => {
         this.list = response.result.items
         this.total = response.result.total
 
@@ -253,7 +253,7 @@ export default {
           // this.temp.id = parseInt(Math.random() * 100) + 1024 // mock a id
           // this.temp.author = 'vue-element-admin'
           const postData = qs.stringify(this.siteDataModel)
-          SiteOperations.addSite(postData).then(() => {
+          addSite(postData).then(() => {
             this.handleFilter()
             this.dialogFormVisible = false
             this.resetSiteDataModel()
@@ -288,7 +288,7 @@ export default {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
           const postData = qs.stringify(this.siteDataModel)
-          SiteOperations.updateSite(postData).then(() => {
+          updateSite(postData).then(() => {
             const index = this.list.findIndex(v => v.siteId === this.siteDataModel.siteId)
             this.list.splice(index, 1, this.siteDataModel)
             this.dialogFormVisible = false
@@ -311,7 +311,7 @@ export default {
         cancelButtonText: that.$t('operation.cancel'),
         type: 'warning'
       }).then(() => {
-        SiteOperations.deleteSite(row.siteId).then(() => {
+        deleteSite(row.siteId).then(() => {
           this.$notify({
             title: this.$t('operation.success'),
             message: this.$t('operation.deleteSuccessed'),

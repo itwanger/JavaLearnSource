@@ -72,15 +72,6 @@ export default {
     theme: '换肤',
     size: '布局大小'
   },
-  login: {
-    title: '系统登录',
-    logIn: '登录',
-    username: '账号',
-    password: '密码',
-    any: '随便填',
-    thirdparty: '第三方登录',
-    thirdpartyTips: '本地不能模拟，请结合自己业务进行模拟！！！'
-  },
   documentation: {
     documentation: '文档',
     github: 'Github 地址'
@@ -206,6 +197,28 @@ export default {
     createSite: '新建站点',
     editSite: '编辑站点',
     // deleteConfirm: '是否确认删除该站点？',特别奇怪的现象，该变量在i18n中不起作用
-    deleteWarning: '是否确认删除该站点？'
+    deleteWarning: '是否确认删除该站点？',
+    validNotEmptySiteName: '站点名称不能为空',
+    validNotEmptyDomain: '域名不能为空',
+    validNotTelName: '模板方案不能为空'
+  },
+  // 用户相关
+  users: {
+    validNotEmptyUserName: '用户名不能为空',
+    validNotEmptyPassword: '登陆密码不能为空',
+    validPasswordMinLength: '密码最少不能少于6位'
+  },
+  // 登陆相关
+  login: {
+    title: '系统登录',
+    logIn: '登录',
+    username: '账号',
+    password: '密码',
+    any: '随便填',
+    thirdparty: '第三方登录',
+    thirdpartyTips: '本地不能模拟，请结合自己业务进行模拟！！！',
+    validNotEmptyUserName: '用户名不能为空',
+    validNotEmptyPassword: '登陆密码不能为空',
+    validIncorrectCredential: '用户名或者密码不正确'
   }
 }

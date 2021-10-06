@@ -21,7 +21,7 @@ service.interceptors.request.use(
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation
       // config.headers['content-type'] = 'application/json'
-      config.headers['X-Token'] = getToken()
+      config.headers['Authorization'] = getToken()
       // config.data = qs.stringify(config.data)
       // config.headers['content-type'] = 'application/x-www-form-urlencoded'
     }

@@ -6,6 +6,9 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    console.log('全局store对象', this.$store)
+  }
 }
 </script>

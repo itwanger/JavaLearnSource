@@ -11,6 +11,7 @@ NProgress.configure({ showSpinner: false }) // NProgress Configuration
 const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
 
 router.beforeEach(async(to, from, next) => {
+  console.log('路由跟踪：：：：：：：：', to, from, next)
   // start progress bar
   NProgress.start()
 
@@ -29,12 +30,31 @@ router.beforeEach(async(to, from, next) => {
       // determine whether the user has obtained his permission roles through getInfo
       const hasRoles = store.getters.roles && store.getters.roles.length > 0
       if (hasRoles) {
-        next()
+        console.log('路径1')
+        if ((!to.query.siteId && store.getters.siteManagement.currentSiteId > 0) ||
+          (to.query.siteId && store.getters.siteManagement.currentSiteId > 0 && store.getters.siteManagement.currentSiteId !== to.query.siteId)) {
+          console.log('进入判断')
+          to.query.siteId = store.getters.siteManagement.currentSiteId
+          console.log('路由跟踪：：：：：：：：', to, from, next)
+          // next()
+          next({
+            path: to.path,
+            query: {
+              ...to.query
+              // siteId: store.getters.siteManagement.currentSiteId
+            }
+          })
+        } else {
+          console.log('没进入判断', store.getters.siteManagement)
+          next()
+        }
       } else {
         try {
           // get user info
           // note: roles must be a object array! such as: ['admin'] or ,['developer','editor']
           const { roles } = await store.dispatch('user/getInfo')
+
+          await store.dispatch('user/getUserChargingSites')
 
           // generate accessible routes map based on roles
           const accessRoutes = await store.dispatch('permission/generateRoutes', roles)
