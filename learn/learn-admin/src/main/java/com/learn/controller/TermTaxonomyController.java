@@ -3,11 +3,13 @@ package com.learn.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.learn.dto.TermTaxonomyParam;
 import com.learn.model.TermTaxonomy;
 import com.learn.service.ITermTaxonomyService;
 import com.learn.webapi.ResultObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -52,10 +54,9 @@ public class TermTaxonomyController {
     @RequestMapping(value = "/update",method=RequestMethod.POST)
     @ResponseBody
     @ApiOperation("更新")
-    public ResultObject<String> update(@Valid TermTaxonomy termTaxonomy) {
-        if (termTaxonomy.getTermTaxonomyId() == null) {
-            return ResultObject.failed("id不能为空");
-        }
+    public ResultObject<String> update(@Valid TermTaxonomyParam param) {
+        TermTaxonomy termTaxonomy = termTaxonomyService.getById(param.getTermTaxonomyId());
+        BeanUtils.copyProperties(param,termTaxonomy);
         return ResultObject.success(termTaxonomyService.updateById(termTaxonomy) ? "更新成功" : "更新失败");
     }
 
@@ -69,7 +70,7 @@ public class TermTaxonomyController {
     @RequestMapping(value = "/queryPageable",method=RequestMethod.GET)
     @ResponseBody
     @ApiOperation("分页查询")
-    public ResultObject<Map<String,Object>> queryPageable(long pageSize, long page){
+    public ResultObject<Map<String,Object>> queryPageable(long pageSize, long page,long siteId){
         Map<String,Object> map = new HashMap<>();
         Page<TermTaxonomy> termTaxonomyPage = new Page<>(page,pageSize);
         IPage<TermTaxonomy> termTaxonomyIPage = termTaxonomyService.page(termTaxonomyPage);

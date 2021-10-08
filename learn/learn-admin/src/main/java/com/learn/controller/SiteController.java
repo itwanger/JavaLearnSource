@@ -65,7 +65,7 @@ public class SiteController {
     @ResponseBody
     @ApiOperation("删除")
     public ResultObject<String> delete(long siteId) {
-        return ResultObject.success(siteService.removeById(siteId) ? "删除成功" : "删除失败");
+        return ResultObject.success(siteService.deleteSite(siteId) ? "删除成功" : "删除失败");
     }
 
     @RequestMapping(value = "/queryPageable",method=RequestMethod.GET)
