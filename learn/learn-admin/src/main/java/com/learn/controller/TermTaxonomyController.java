@@ -1,10 +1,12 @@
 package com.learn.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.learn.dto.TermTaxonomyParam;
 import com.learn.model.TermTaxonomy;
+import com.learn.model.Users;
 import com.learn.service.ITermTaxonomyService;
 import com.learn.webapi.ResultObject;
 import io.swagger.annotations.Api;
@@ -73,7 +75,9 @@ public class TermTaxonomyController {
     public ResultObject<Map<String,Object>> queryPageable(long pageSize, long page,long siteId){
         Map<String,Object> map = new HashMap<>();
         Page<TermTaxonomy> termTaxonomyPage = new Page<>(page,pageSize);
-        IPage<TermTaxonomy> termTaxonomyIPage = termTaxonomyService.page(termTaxonomyPage);
+        QueryWrapper<TermTaxonomy> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("site_id", siteId);
+        IPage<TermTaxonomy> termTaxonomyIPage = termTaxonomyService.page(termTaxonomyPage,queryWrapper);
         map.put("items",termTaxonomyIPage.getRecords());
         map.put("total",termTaxonomyIPage.getTotal());
         return ResultObject.success(map);
