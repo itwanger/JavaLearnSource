@@ -13,4 +13,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ITermTaxonomyService extends IService<TermTaxonomy> {
 
+    /**
+     * 删除栏目 包含了逻辑判断
+     * @param termTaxonomyId
+     * @return
+     */
+    boolean removeTermTaxonomy(long termTaxonomyId);
+
 }

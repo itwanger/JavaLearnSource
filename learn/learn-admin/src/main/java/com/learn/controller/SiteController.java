@@ -71,7 +71,7 @@ public class SiteController {
     @RequestMapping(value = "/queryPageable",method=RequestMethod.GET)
     @ResponseBody
     @ApiOperation("分页查询")
-    public ResultObject<Map<String,Object>> queryPageable(long pageSize,long page){
+    public ResultObject<Map<String,Object>> queryPageable(@RequestParam long pageSize, @RequestParam long page){
         Map<String,Object> map = new HashMap<>();
         Page<Site> sitePage = new Page<>(page,pageSize);
         IPage<Site> siteIPage = siteService.page(sitePage);
