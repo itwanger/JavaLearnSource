@@ -2,6 +2,10 @@ package com.learn.service;
 
 import com.learn.model.TermTaxonomy;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.learn.vo.TermTaxonomyTreeNode;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 /**
  * <p>
@@ -20,4 +24,6 @@ public interface ITermTaxonomyService extends IService<TermTaxonomy> {
      */
     boolean removeTermTaxonomy(long termTaxonomyId);
 
+
+    List<TermTaxonomyTreeNode> getAllByParentId(Long parentId, long siteId);
 }
