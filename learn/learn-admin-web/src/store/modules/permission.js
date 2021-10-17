@@ -1,4 +1,5 @@
-import { asyncRoutes, constantRoutes } from '@/router'
+// eslint-disable-next-line no-unused-vars
+import { asyncRoutes, constantRoutes, constantRoutes1 } from '@/router'
 
 /**
  * Use meta.role to determine if the current user has permission
@@ -43,7 +44,9 @@ const state = {
 const mutations = {
   SET_ROUTES: (state, routes) => {
     state.addRoutes = routes
-    state.routes = constantRoutes.concat(routes)
+    // 之前是写死的路由
+    // state.routes = constantRoutes.concat(routes)
+    state.routes = routes
   }
 }
 
@@ -57,6 +60,10 @@ const actions = {
       } else {
         accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
       }
+
+      // TODO: 正式写死返回路由
+      accessedRoutes = constantRoutes1
+
       commit('SET_ROUTES', accessedRoutes)
       resolve(accessedRoutes)
     })

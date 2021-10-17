@@ -2,7 +2,7 @@ import request from '@/utils/request-to-server'
 
 export function login(data) {
   return request({
-    url: '/api/users/login',
+    url: '/users/login',
     method: 'post',
     data
   })
@@ -10,7 +10,7 @@ export function login(data) {
 
 export function getInfo(token) {
   return request({
-    url: '/api/users/info',
+    url: '/users/info',
     method: 'get',
     params: { token }
   })
@@ -27,7 +27,7 @@ export function logout() {
 
 export function getUserList(data) {
   return request({
-    url: `/api/users/queryPageable?_=${Math.random()}`,
+    url: `/users/queryPageable?_=${Math.random()}`,
     method: 'get',
     data
   })
@@ -35,7 +35,7 @@ export function getUserList(data) {
 
 export function getOneUser(id) {
   return request({
-    url: `/api/users/getById`,
+    url: `/users/getById`,
     method: 'get',
     data: {
       id
@@ -45,7 +45,7 @@ export function getOneUser(id) {
 
 export function updateUser(data) {
   return request({
-    url: '/api/users/update',
+    url: '/users/update',
     method: 'post',
     data
   })
@@ -53,7 +53,7 @@ export function updateUser(data) {
 
 export function addUser(data) {
   return request({
-    url: '/api/users/insert',
+    url: '/users/insert',
     method: 'post',
     data
   })
@@ -61,7 +61,7 @@ export function addUser(data) {
 
 export function deleteUser(id) {
   return request({
-    url: '/api/users/delete',
+    url: '/users/delete',
     method: 'get',
     data: {
       id
