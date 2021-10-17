@@ -27,6 +27,9 @@ public class TermTaxonomy implements Serializable {
     @TableId(value = "term_taxonomy_id", type = IdType.AUTO)
     private Long termTaxonomyId;
 
+    @ApiModelProperty(value = "栏目名称")
+    private String name;
+
     @ApiModelProperty(value = "说明")
     private String description;
 

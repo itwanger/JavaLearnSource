@@ -21,6 +21,9 @@ public class TermTaxonomyTreeNode implements Serializable {
     @ApiModelProperty(value = "站点id")
     private Long siteId;
 
+    @ApiModelProperty(value = "栏目名称")
+    private String name;
+
     @ApiModelProperty(value = "说明")
     private String description;
 

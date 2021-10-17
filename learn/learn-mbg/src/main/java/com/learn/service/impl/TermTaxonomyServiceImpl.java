@@ -43,6 +43,7 @@ public class TermTaxonomyServiceImpl extends ServiceImpl<TermTaxonomyMapper, Ter
 
     @Override
     public List<TermTaxonomyTreeNode> getAllByParentId(Long parentId, long siteId) {
+        int firstLevelParentId = 0;
         List<TermTaxonomyTreeNode> treeNodes = new ArrayList<>();
         QueryWrapper<TermTaxonomy> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("site_id", siteId);
@@ -58,7 +59,7 @@ public class TermTaxonomyServiceImpl extends ServiceImpl<TermTaxonomyMapper, Ter
         if(parentId!=null){
             rootTreeNodes =  treeNodes.stream().filter(termTaxonomy -> parentId.equals(termTaxonomy.getParentId())).collect(Collectors.toList());
         }else {
-            rootTreeNodes =  treeNodes.stream().filter(termTaxonomy -> termTaxonomy.getParentId() == null).collect(Collectors.toList());
+            rootTreeNodes =  treeNodes.stream().filter(termTaxonomy -> termTaxonomy.getParentId() == firstLevelParentId).collect(Collectors.toList());
         }
 
         rootTreeNodes.forEach(node->{

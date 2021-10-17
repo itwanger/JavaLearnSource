@@ -49,7 +49,7 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir( "D:/test");
+        gc.setOutputDir( "D:\\Temp\\CodeGenerate");
         gc.setAuthor("石磊");
         gc.setOpen(false);
         gc.setDateType(DateType.ONLY_DATE);
@@ -75,6 +75,7 @@ public class CodeGenerator {
         mpg.setPackageInfo(pc);
         StrategyConfig strategyConfig = new StrategyConfig();
         // 配置数据表与实体类名之间映射的策略
+        strategyConfig.setInclude("term_taxonomy");
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);
 // 配置数据表的字段与实体类的属性名之间映射的策略
         strategyConfig.setColumnNaming(NamingStrategy.underline_to_camel);
