@@ -1,5 +1,6 @@
 module.exports = {
-  title: 'Vue Element Admin',
+  // 页面标题设置
+  title: 'Java Learn Supper Good',
 
   /**
    * @type {boolean} true | false

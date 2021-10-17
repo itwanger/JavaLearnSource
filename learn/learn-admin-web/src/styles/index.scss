@@ -189,3 +189,27 @@ aside {
 .multiselect--active {
   z-index: 1000 !important;
 }
+
+/* 一些公用样式 */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify{
+  text-align: justify;
+}
+
+.clear {
+  clear: both;
+}
+/* 一些公用样式结束 */
+.styleof-inlineblock{
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+

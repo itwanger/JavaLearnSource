@@ -44,7 +44,7 @@ const state = {
 const mutations = {
   SET_ROUTES: (state, routes) => {
     state.addRoutes = routes
-    // 之前是写死的路由
+    // TODO: 之前是写死的路由，将来需要干掉，或者constantRoutes需要改为不需要权限的界面路由集合
     // state.routes = constantRoutes.concat(routes)
     state.routes = routes
   }

@@ -202,6 +202,21 @@ export default {
     validNotEmptyDomain: '域名不能为空',
     validNotTelName: '模板方案不能为空'
   },
+  // 栏目相关
+  columns: {
+    id: '栏目编号',
+    columnName: '栏目名称',
+    columnDesc: '栏目描述',
+    createRootColumn: '新建根栏目',
+    createChildColumn: '新建子栏目',
+    editColumn: '编辑栏目',
+    deleteWarning: '是否确认删除该栏目及其下属栏目？',
+    validNotEmptyColumnName: '栏目名称不能为空',
+    validNotEmptyOutlineTemplate: '栏目默认概览模板不能为空',
+    validNotEmptyDetailTemplate: '栏目默认细览模板不能为空',
+    publishAll: '完全发布',
+    publishOutline: '发布概览'
+  },
   // 用户相关
   users: {
     validNotEmptyUserName: '用户名不能为空',
