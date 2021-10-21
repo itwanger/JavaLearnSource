@@ -32,9 +32,14 @@ public class TermTaxonomyParam implements Serializable {
     @ApiModelProperty(value = "说明")
     private String description;
 
+    @ApiModelProperty(value = "名称")
+    private String name;
+
     @ApiModelProperty(value = "父栏目id")
     private Long parentId;
 
+    @ApiModelProperty(value = "模板路径")
+    private String tplPath;
 
 
 }

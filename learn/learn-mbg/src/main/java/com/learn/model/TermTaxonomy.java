@@ -39,5 +39,7 @@ public class TermTaxonomy implements Serializable {
     @ApiModelProperty(value = "站点id")
     private Long siteId;
 
+    @ApiModelProperty(value = "模板路径")
+    private String tplPath;
 
 }
