@@ -69,6 +69,28 @@ public class TermTaxonomyServiceImpl extends ServiceImpl<TermTaxonomyMapper, Ter
         return rootTreeNodes;
     }
 
+    @Override
+    public List<TermTaxonomyTreeNode> getChildrenByParentId(Long parentId) {
+
+        List<TermTaxonomyTreeNode> treeNodes = new ArrayList<>();
+        QueryWrapper<TermTaxonomy> queryWrapper = new QueryWrapper<>();
+        if(parentId != null) {
+            queryWrapper.eq("parent_id", parentId);
+        }
+        else {
+            return null;
+        }
+        List<TermTaxonomy> termTaxonomyList = this.list(queryWrapper);
+
+        termTaxonomyList.forEach(item->{
+            TermTaxonomyTreeNode treeNode = new TermTaxonomyTreeNode();
+            BeanUtils.copyProperties(item,treeNode);
+            treeNodes.add(treeNode) ;
+        });
+
+        return treeNodes;
+    }
+
     private void loopGetAll( TermTaxonomyTreeNode rootTreeNode,List<TermTaxonomyTreeNode> treeNodes ){
         List<TermTaxonomyTreeNode> childrenList = treeNodes.stream().filter(termTaxonomy -> rootTreeNode.getTermTaxonomyId().longValue() == termTaxonomy.getParentId()).collect(Collectors.toList());
         if(childrenList.size() == 0){

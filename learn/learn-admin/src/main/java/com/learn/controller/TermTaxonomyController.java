@@ -88,11 +88,16 @@ public class TermTaxonomyController {
 
     @RequestMapping(value = "/getPyParentId", method = RequestMethod.GET)
     @ResponseBody
-    @ApiOperation("根据父栏目查子栏目")
+    @ApiOperation("根据父栏目id和站点id查询所有下级子孙栏目")
     public ResultObject<List<TermTaxonomyTreeNode>> getPyParentId(Long parentId, @RequestParam long siteId) {
         return ResultObject.success(termTaxonomyService.getAllByParentId(parentId, siteId));
     }
 
-
+    @RequestMapping(value = "/getNextLevelPyParentId", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("根据父栏目id查询直属子栏目")
+    public ResultObject<List<TermTaxonomyTreeNode>> getNextLevelPyParentId(Long parentId) {
+        return ResultObject.success(termTaxonomyService.getChildrenByParentId(parentId));
+    }
 }
 
