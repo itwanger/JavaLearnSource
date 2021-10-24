@@ -57,3 +57,7 @@ redis:
   expire:
     common: 86400 # 24小时
 
+
+# 模板根目录
+template:
+  rootPath: d:/tpl

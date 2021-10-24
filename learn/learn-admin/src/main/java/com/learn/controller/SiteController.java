@@ -3,6 +3,7 @@ package com.learn.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.learn.service.ITemplateService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -19,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,6 +37,8 @@ import java.util.Map;
 public class SiteController {
     @Autowired
     private ISiteService siteService;
+    @Autowired
+    private ITemplateService iTemplateService;
 
     @RequestMapping(value = "/insert",method=RequestMethod.POST)
     @ResponseBody
@@ -78,6 +82,13 @@ public class SiteController {
         map.put("items",siteIPage.getRecords());
         map.put("total",siteIPage.getTotal());
         return ResultObject.success(map);
+    }
+
+    @RequestMapping(value = "/getSiteTemplateList",method=RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("获取站点模板")
+    public ResultObject<List<String>> getSiteTemplateList() {
+        return ResultObject.success(iTemplateService.getTemplateList());
     }
 
 

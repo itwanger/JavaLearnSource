@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.learn.dto.TermTaxonomyParam;
 import com.learn.model.TermTaxonomy;
 import com.learn.model.Users;
+import com.learn.service.ITemplateService;
 import com.learn.service.ITermTaxonomyService;
 import com.learn.vo.TermTaxonomyTreeNode;
 import com.learn.webapi.ResultObject;
@@ -41,6 +42,8 @@ import java.util.Map;
 public class TermTaxonomyController {
     @Autowired
     private ITermTaxonomyService termTaxonomyService;
+    @Autowired
+    private ITemplateService iTemplateService;
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     @ResponseBody
@@ -98,6 +101,20 @@ public class TermTaxonomyController {
     @ApiOperation("根据父栏目id查询直属子栏目")
     public ResultObject<List<TermTaxonomyTreeNode>> getNextLevelPyParentId(Long parentId) {
         return ResultObject.success(termTaxonomyService.getChildrenByParentId(parentId));
+    }
+
+    @RequestMapping(value = "/getChannelTemplateList",method=RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("根据站点模板名称获取栏目模板列表")
+    public ResultObject<List<String>> getChannelTemplateList(@RequestParam String siteTemplate) {
+        return ResultObject.success(iTemplateService.getChannelTemplateList(siteTemplate));
+    }
+
+    @RequestMapping(value = "/getContentTemplateList",method=RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("根据站点模板名称获取内容模板列表")
+    public ResultObject<List<String>> getContentTemplateList(@RequestParam String siteTemplate) {
+        return ResultObject.success(iTemplateService.getContentTemplateList(siteTemplate));
     }
 }
 
