@@ -1,8 +1,11 @@
 package com.learn.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.Date;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -41,5 +44,21 @@ public class TermTaxonomy implements Serializable {
 
     @ApiModelProperty(value = "模板路径")
     private String tplPath;
+
+    @TableField("create_user_id")
+    @ApiModelProperty("创建用户id")
+    private Long createUserId;
+
+    @TableField("create_time")
+    @ApiModelProperty("创建时间")
+    private Date createTime;
+
+    @TableField("update_time")
+    @ApiModelProperty("修改时间")
+    private Date updateTime;
+
+    @ApiModelProperty(value = "内容模板模板路径")
+    @TableField("content_tpl_path")
+    private String contentTplPath;
 
 }

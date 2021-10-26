@@ -9,6 +9,7 @@ import com.learn.model.TermTaxonomy;
 import com.learn.model.Users;
 import com.learn.service.ITemplateService;
 import com.learn.service.ITermTaxonomyService;
+import com.learn.service.IUsersService;
 import com.learn.vo.TermTaxonomyTreeNode;
 import com.learn.webapi.ResultObject;
 import io.swagger.annotations.Api;
@@ -44,11 +45,17 @@ public class TermTaxonomyController {
     private ITermTaxonomyService termTaxonomyService;
     @Autowired
     private ITemplateService iTemplateService;
+    @Autowired
+    private IUsersService iUsersService;
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     @ResponseBody
     @ApiOperation("添加栏目")
-    public ResultObject<String> insert(@Valid TermTaxonomy termTaxonomy) {
+    public ResultObject<String> insert(@Valid TermTaxonomyParam termTaxonomyParam) {
+        TermTaxonomy termTaxonomy = new TermTaxonomy();
+        BeanUtils.copyProperties(termTaxonomyParam,termTaxonomy);
+        termTaxonomy.setCreateTime(new Date());
+        termTaxonomy.setCreateUserId(iUsersService.getCurrentUserId());
         return ResultObject.success(termTaxonomyService.save(termTaxonomy) ? "保存成功" : "保存失败");
     }
 
@@ -63,8 +70,12 @@ public class TermTaxonomyController {
     @ResponseBody
     @ApiOperation("更新")
     public ResultObject<String> update(@Valid TermTaxonomyParam param) {
+        if(param.getTermTaxonomyId() == null){
+            return ResultObject.failed("termTaxonomyId不能为空");
+        }
         TermTaxonomy termTaxonomy = termTaxonomyService.getById(param.getTermTaxonomyId());
         BeanUtils.copyProperties(param, termTaxonomy);
+        termTaxonomy.setUpdateTime(new Date());
         return ResultObject.success(termTaxonomyService.updateById(termTaxonomy) ? "更新成功" : "更新失败");
     }
 

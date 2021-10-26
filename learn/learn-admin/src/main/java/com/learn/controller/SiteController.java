@@ -3,10 +3,13 @@ package com.learn.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.learn.dto.SiteParam;
 import com.learn.service.ITemplateService;
+import com.learn.service.IUsersService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletRequest;
@@ -19,6 +22,7 @@ import com.learn.webapi.ResultObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,12 +43,18 @@ public class SiteController {
     private ISiteService siteService;
     @Autowired
     private ITemplateService iTemplateService;
+    @Autowired
+    private IUsersService iUsersService;
+
 
     @RequestMapping(value = "/insert",method=RequestMethod.POST)
     @ResponseBody
     @ApiOperation("添加站点")
-    public ResultObject<String> insert(@Valid Site site, ServletRequest request) {
-//       throw new ApiException("test");
+    public ResultObject<String> insert(@Valid SiteParam siteParam) {
+        Site site = new Site();
+        BeanUtils.copyProperties(siteParam,site);
+        site.setCreateTime(new Date());
+        site.setCreateUserId(iUsersService.getCurrentUserId());
         return ResultObject.success(siteService.save(site) ? "保存成功" : "保存失败");
     }
 
@@ -58,10 +68,13 @@ public class SiteController {
     @RequestMapping(value = "/update",method=RequestMethod.POST)
     @ResponseBody
     @ApiOperation("更新")
-    public ResultObject<String> update(@Valid Site site) {
-        if (site.getSiteId() == null) {
+    public ResultObject<String> update(@Valid SiteParam siteParam) {
+        if (siteParam.getSiteId() == null) {
             return ResultObject.failed("id不能为空");
         }
+        Site site = siteService.getById(siteParam.getSiteId());
+        BeanUtils.copyProperties(siteParam,site);
+        site.setUpdateTime(new Date());
         return ResultObject.success(siteService.updateById(site) ? "更新成功" : "更新失败");
     }
 

@@ -62,4 +62,8 @@ public class AdminUserDetails implements UserDetails {
     public boolean isEnabled() {
         return users.getUserStatus().equals(UserStatus.ENABLE.getStatus());
     }
+
+    public Users getUsers(){
+        return  this.users;
+    }
 }

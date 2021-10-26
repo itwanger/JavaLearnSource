@@ -48,6 +48,19 @@ public interface IUsersService extends IService<Users> {
      */
     UserDetails loadUserByUsername(String username);
 
+    /**
+     * 获取当前登录用户
+     * @return
+     */
+    Users getCurrentLoginUser();
+
+    /**
+     * 获取当前登录用户id
+     * @return
+     */
+    Long getCurrentUserId();
+
+
 
 
 }
