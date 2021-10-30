@@ -1,5 +1,6 @@
 package com.learn.vo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -23,6 +24,12 @@ public class TermTaxonomyTreeNode implements Serializable {
 
     @ApiModelProperty(value = "栏目名称")
     private String name;
+
+    @ApiModelProperty(value = "模板路径")
+    private String tplPath;
+
+    @ApiModelProperty(value = "内容模板模板路径")
+    private String contentTplPath;
 
     @ApiModelProperty(value = "说明")
     private String description;
