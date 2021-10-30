@@ -25,6 +25,7 @@ const state = {
   roles: [],
   siteManagement: {
     currentSiteId: -1,
+    currentSite: null,
     siteList: []
   },
   userInfo: {}
@@ -54,6 +55,8 @@ const mutations = {
   },
   SET_CURRENT_SITE: (state, siteId) => {
     state.siteManagement.currentSiteId = siteId
+    const theSite = state.siteManagement.siteList.filter(x => x.siteId === siteId)
+    state.siteManagement.currentSite = theSite
   },
   SET_USER: (state, userModel) => {
     state.userInfo = userModel
@@ -150,6 +153,7 @@ const actions = {
         // eslint-disable-next-line prefer-const
         let siteManagmentValue = {
           currentSiteId: response.result.items[0].siteId,
+          currentSite: response.result.items[0],
           siteList: response.result.items
         }
         commit('SET_SITE_MANAGEMENT', siteManagmentValue)

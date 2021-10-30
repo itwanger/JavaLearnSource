@@ -206,9 +206,10 @@ export default {
   columns: {
     id: '栏目编号',
     columnName: '栏目名称',
+    columnOutlineTemplate: '栏目模板',
+    columnDetailTemplate: '详情模板',
     columnDesc: '栏目描述',
-    createRootColumn: '新建根栏目',
-    createChildColumn: '新建子栏目',
+    createColumn: '新建栏目',
     editColumn: '编辑栏目',
     deleteWarning: '是否确认删除该栏目及其下属栏目？',
     validNotEmptyColumnName: '栏目名称不能为空',
