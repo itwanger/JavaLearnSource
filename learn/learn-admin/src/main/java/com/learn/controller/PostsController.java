@@ -3,11 +3,14 @@ package com.learn.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.learn.dto.PostsParam;
 import com.learn.model.Posts;
 import com.learn.service.IPostsService;
+import com.learn.service.IUsersService;
 import com.learn.webapi.ResultObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,14 +37,24 @@ import java.util.Map;
 public class PostsController {
     @Autowired
     private IPostsService postsService;
+    @Autowired
+    private IUsersService iUsersService;
 
     @RequestMapping(value = "/insert",method= RequestMethod.POST)
     @ResponseBody
     @ApiOperation("添加文章")
-    public ResultObject<String> insert(@Valid Posts posts) {
-        posts.setCommentCount(0l);
-        posts.setPostDate(new Date());
-        posts.setPostModified(new Date());
+    public ResultObject<String> insert(@Valid PostsParam postsParam) {
+
+        Posts posts = new Posts();
+        BeanUtils.copyProperties(postsParam,posts);
+        posts.setCommentCount(0L);
+        if(posts.getPostDate()!= null){
+            posts.setPostDate(new Date());
+        }
+
+
+        posts.setPostAuthor(iUsersService.getCurrentUserId());
+
         return ResultObject.success(postsService.save(posts) ? "保存成功" : "保存失败");
     }
 
