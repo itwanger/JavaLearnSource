@@ -3,6 +3,8 @@ package com.learn.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.github.jeffreyning.mybatisplus.anno.MppMultiId;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -24,16 +26,18 @@ public class TermRelationships implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "对应文章ID/链接ID")
-    @TableId(value = "object_id", type = IdType.AUTO)
+    @MppMultiId
     private Long objectId;
 
     @ApiModelProperty(value = "栏目ID")
+    @MppMultiId
     private Long termTaxonomyId;
 
     @ApiModelProperty(value = "排序")
     private Integer termOrder;
 
     @ApiModelProperty(value = "类型,0:文章内容,1:文章链接，2:栏目链接")
+    @MppMultiId
     private Integer type;
 
 

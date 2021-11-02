@@ -7,10 +7,11 @@ import com.learn.dto.PostsParam;
 import com.learn.model.Posts;
 import com.learn.service.IPostsService;
 import com.learn.service.IUsersService;
+import com.learn.util.PostStatus;
+import com.learn.util.PostType;
 import com.learn.webapi.ResultObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -44,18 +45,15 @@ public class PostsController {
     @ResponseBody
     @ApiOperation("添加文章")
     public ResultObject<String> insert(@Valid PostsParam postsParam) {
-
-        Posts posts = new Posts();
-        BeanUtils.copyProperties(postsParam,posts);
-        posts.setCommentCount(0L);
-        if(posts.getPostDate()!= null){
-            posts.setPostDate(new Date());
+        PostStatus postStatus = PostStatus.valueOf(postsParam.getPostStatus());
+        if(postStatus == null || postStatus == PostStatus.DELETED){
+            return ResultObject.failed("文章状态设置错误");
         }
-
-
-        posts.setPostAuthor(iUsersService.getCurrentUserId());
-
-        return ResultObject.success(postsService.save(posts) ? "保存成功" : "保存失败");
+        PostType postType = PostType.valueOf(postsParam.getPostType());
+        if(postType == null){
+            return ResultObject.failed("文章类型设置错误");
+        }
+        return ResultObject.success(postsService.savePosts(postsParam) ? "保存成功" : "保存失败");
     }
 
     @RequestMapping(value = "/getById",method=RequestMethod.GET)

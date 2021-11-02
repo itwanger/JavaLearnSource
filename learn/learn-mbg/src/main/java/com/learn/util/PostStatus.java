@@ -4,16 +4,17 @@ package com.learn.util;
  * 文章发布状态
  */
 public enum PostStatus {
-    PUBLISHED("published"),
-    DELETED("deleted"),
-    DRAFT("draft");
-    private String status;
+    /**
+     * 发布
+     */
+    PUBLISHED,
+    /**
+     * 删除
+     */
+    DELETED,
+    /**
+     * 草稿箱
+     */
+    DRAFT;
 
-    public String getStatus() {
-        return status;
-    }
-
-    PostStatus(String status) {
-        this.status = status;
-    }
 }

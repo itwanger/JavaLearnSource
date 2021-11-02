@@ -193,6 +193,12 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>3.4.2</version>
             </dependency>
+          <!--  https://gitee.com/jeffreyning/mybatisplus-plus-->
+            <dependency>
+                <groupId>com.github.jeffreyning</groupId>
+                <artifactId>mybatisplus-plus</artifactId>
+                <version>1.6.0-RELEASE</version>
+            </dependency>
 
 
             <!-- mybatis-plus end -->
