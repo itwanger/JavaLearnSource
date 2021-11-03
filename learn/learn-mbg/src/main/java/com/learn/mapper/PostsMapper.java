@@ -1,7 +1,13 @@
 package com.learn.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Constants;
+import com.learn.dto.PostsPageQueryParam;
 import com.learn.model.Posts;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.learn.vo.PostsVo;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -13,4 +19,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface PostsMapper extends BaseMapper<Posts> {
 
+    IPage<PostsVo> findByPage(IPage<PostsVo> page, @Param(Constants.WRAPPER) Wrapper<PostsPageQueryParam> wrapper);
 }
