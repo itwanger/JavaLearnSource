@@ -1,7 +1,10 @@
 package com.learn.service;
 
+import com.learn.dto.PostTagParam;
 import com.learn.model.PostTag;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IPostTagService extends IService<PostTag> {
 
+    boolean savePostTag(PostTagParam postTagParam);
+
+    /**
+     * 获取文章标签
+     * @param objectId
+     * @return
+     */
+    List<PostTag> getByObjectId(Long objectId);
 }

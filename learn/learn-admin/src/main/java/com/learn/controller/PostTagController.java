@@ -1,8 +1,10 @@
 package com.learn.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.learn.dto.PostTagParam;
 import com.learn.model.PostTag;
 import com.learn.service.IPostTagService;
 import com.learn.webapi.ResultObject;
@@ -16,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.Valid;
-import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,9 +40,9 @@ public class PostTagController {
     @RequestMapping(value = "/insert",method= RequestMethod.POST)
     @ResponseBody
     @ApiOperation("添加标签")
-    public ResultObject<String> insert(@Valid PostTag postTag) {
+    public ResultObject<String> insert(@Valid PostTagParam postTag) {
 
-        return ResultObject.success(postTagService.save(postTag) ? "保存成功" : "保存失败");
+        return ResultObject.success(postTagService.savePostTag(postTag) ? "保存成功" : "保存失败");
     }
 
     @RequestMapping(value = "/getById",method=RequestMethod.GET)
@@ -50,15 +52,24 @@ public class PostTagController {
         return ResultObject.success(postTagService.getById(postTagId));
     }
 
-    @RequestMapping(value = "/update",method=RequestMethod.POST)
+    @RequestMapping(value = "/getByObjectId",method=RequestMethod.GET)
     @ResponseBody
-    @ApiOperation("更新")
-    public ResultObject<String> update(@Valid PostTag postTag) {
-        if (postTag.getPostId() == null) {
-            return ResultObject.failed("id不能为空");
-        }
-        return ResultObject.success(postTagService.updateById(postTag) ? "更新成功" : "更新失败");
+    @ApiOperation("根据文章内容获取标签")
+    public ResultObject<List<PostTag>> getByObjectId(long objectId) {
+
+        return ResultObject.success(postTagService.getByObjectId(objectId));
     }
+
+    @RequestMapping(value = "/getByName",method=RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("模糊匹配")
+    public ResultObject<List<PostTag>> getByObjectId(String  keyWord,long siteId) {
+        QueryWrapper<PostTag> postTagQueryWrapper = new QueryWrapper();
+        postTagQueryWrapper.eq("site_id",siteId);
+        postTagQueryWrapper.like("description",keyWord+"%");
+        return ResultObject.success(postTagService.list(postTagQueryWrapper));
+    }
+
 
     @RequestMapping(value = "/delete",method=RequestMethod.GET)
     @ResponseBody
@@ -70,10 +81,12 @@ public class PostTagController {
     @RequestMapping(value = "/queryPageable",method=RequestMethod.GET)
     @ResponseBody
     @ApiOperation("分页查询")
-    public ResultObject<Map<String,Object>> queryPageable(long pageSize, long page){
+    public ResultObject<Map<String,Object>> queryPageable(long pageSize, long page,long siteId){
         Map<String,Object> map = new HashMap<>();
         Page<PostTag> postTagPage = new Page<>(page,pageSize);
-        IPage<PostTag> postTagIPage = postTagService.page(postTagPage);
+        QueryWrapper<PostTag> postTagQueryWrapper = new QueryWrapper();
+        postTagQueryWrapper.eq("site_id",siteId);
+        IPage<PostTag> postTagIPage = postTagService.page(postTagPage,postTagQueryWrapper);
         map.put("items",postTagIPage.getRecords());
         map.put("total",postTagIPage.getTotal());
         return ResultObject.success(map);

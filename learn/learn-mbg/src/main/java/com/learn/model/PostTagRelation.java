@@ -3,6 +3,8 @@ package com.learn.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.github.jeffreyning.mybatisplus.anno.MppMultiId;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -24,10 +26,11 @@ public class PostTagRelation implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "对应文章ID")
-    @TableId(value = "object_id", type = IdType.AUTO)
+    @MppMultiId
     private Long objectId;
 
     @ApiModelProperty(value = "标签ID")
+    @MppMultiId
     private Long postTagId;
 
     @ApiModelProperty(value = "排序")
