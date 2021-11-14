@@ -37,4 +37,6 @@ public interface IPostsService extends IService<Posts> {
 
 
     IPage<PostsVo> findByPage(PostsPageQueryParam postsPageQueryParam);
+
+    PostsVo getPostsById(Long id);
 }

@@ -10,11 +10,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.learn.dto.PostTagParam;
 import com.learn.dto.PostsPageQueryParam;
 import com.learn.dto.PostsParam;
-import com.learn.model.PostTag;
-import com.learn.model.PostTagRelation;
-import com.learn.model.Posts;
+import com.learn.model.*;
 import com.learn.mapper.PostsMapper;
-import com.learn.model.TermRelationships;
 import com.learn.service.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.learn.util.TermRelationType;
@@ -119,6 +116,22 @@ public class PostsServiceImpl extends ServiceImpl<PostsMapper, Posts> implements
         queryWrapper.eq("object_id",id);
 
         return  iTermRelationshipsService.remove(queryWrapper);
+    }
+
+    @Override
+    public PostsVo getPostsById(Long id) {
+        Posts posts = this.getById(id);
+        PostsVo postsVo = new PostsVo();
+        BeanUtils.copyProperties(posts,postsVo);
+        QueryWrapper<TermRelationships> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("object_id",posts.getId());
+        List<TermRelationships> termRelationshipsList = iTermRelationshipsService.list(queryWrapper);
+        if(termRelationshipsList.size()>0){
+            postsVo.setTermTaxonomyId(termRelationshipsList.get(0).getTermTaxonomyId());
+        }
+        Users users = iUsersService.getById(posts.getPostAuthor());
+        postsVo.setUserNiceName(users.getUserNicename());
+        return postsVo;
     }
 
     @Override

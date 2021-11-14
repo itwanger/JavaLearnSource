@@ -63,8 +63,8 @@ public class PostsController {
     @RequestMapping(value = "/getById", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation("根据id获取文章")
-    public ResultObject<Posts> getById(long postsId) {
-        return ResultObject.success(postsService.getById(postsId));
+    public ResultObject<PostsVo> getById(long postsId) {
+        return ResultObject.success(postsService.getPostsById(postsId));
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
