@@ -1,5 +1,8 @@
 package com.learn.service.impl;
 
+import cn.hutool.Hutool;
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -8,14 +11,12 @@ import com.learn.dto.PostTagParam;
 import com.learn.dto.PostsPageQueryParam;
 import com.learn.dto.PostsParam;
 import com.learn.model.PostTag;
+import com.learn.model.PostTagRelation;
 import com.learn.model.Posts;
 import com.learn.mapper.PostsMapper;
 import com.learn.model.TermRelationships;
-import com.learn.service.IPostTagService;
-import com.learn.service.IPostsService;
+import com.learn.service.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.learn.service.ITermRelationshipsService;
-import com.learn.service.IUsersService;
 import com.learn.util.TermRelationType;
 import com.learn.vo.PostsVo;
 import org.apache.commons.lang3.StringUtils;
@@ -44,6 +45,8 @@ public class PostsServiceImpl extends ServiceImpl<PostsMapper, Posts> implements
     private ITermRelationshipsService iTermRelationshipsService;
     @Autowired
     private IPostTagService iPostTagService;
+    @Autowired
+    private IPostTagRelationService iPostTagRelationService;
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
@@ -56,14 +59,14 @@ public class PostsServiceImpl extends ServiceImpl<PostsMapper, Posts> implements
         }
         posts.setPostAuthor(iUsersService.getCurrentUserId());
         this.save(posts);
-
+        ObjectUtil.clone(posts);
         if(StringUtils.isNotBlank(postsParam.getTags())){
             String[] tags = postsParam.getTags().split(",");
             for(String tag:tags){
                 QueryWrapper<PostTag> postTagQueryWrapper = new QueryWrapper<>();
                 postTagQueryWrapper.eq("description",tag);
-                int count = iPostTagService.count(postTagQueryWrapper);
-                if(count == 0){
+                List<PostTag>  tagList = iPostTagService.list(postTagQueryWrapper);
+                if(tagList.size() == 0){
                     PostTagParam postTagParam = new PostTagParam();
                     postTagParam.setSiteId(postTagParam.getSiteId());
                     postTagParam.setObjectId(posts.getId());
@@ -72,6 +75,12 @@ public class PostsServiceImpl extends ServiceImpl<PostsMapper, Posts> implements
                     // TODO: 2021/11/14 先默认 循环添加
                     postTagParam.setTermOrder(0);
                     iPostTagService.savePostTag(postTagParam);
+                }else{
+                    PostTagRelation postTagRelation = new PostTagRelation();
+                    postTagRelation.setPostTagId(tagList.get(0).getPostId());
+                    postTagRelation.setObjectId(posts.getId());
+                    postTagRelation.setTermOrder(0);
+                    iPostTagRelationService.save(postTagRelation);
                 }
             }
         }
