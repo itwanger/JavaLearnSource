@@ -66,5 +66,7 @@ public class PostsParam implements Serializable {
     @NotNull(message="栏目ID不能为空")
     private Long termTaxonomyId;
 
+    @ApiModelProperty(value = "标签")
+    private String tags;
 
 }

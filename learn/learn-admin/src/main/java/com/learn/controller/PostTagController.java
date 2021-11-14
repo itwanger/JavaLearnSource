@@ -37,20 +37,9 @@ public class PostTagController {
     @Autowired
     private IPostTagService postTagService;
 
-    @RequestMapping(value = "/insert",method= RequestMethod.POST)
-    @ResponseBody
-    @ApiOperation("添加标签")
-    public ResultObject<String> insert(@Valid PostTagParam postTag) {
+ 
 
-        return ResultObject.success(postTagService.savePostTag(postTag) ? "保存成功" : "保存失败");
-    }
 
-    @RequestMapping(value = "/getById",method=RequestMethod.GET)
-    @ResponseBody
-    @ApiOperation("根据id获取标签")
-    public ResultObject<PostTag> getById(long postTagId) {
-        return ResultObject.success(postTagService.getById(postTagId));
-    }
 
     @RequestMapping(value = "/getByObjectId",method=RequestMethod.GET)
     @ResponseBody
