@@ -82,7 +82,7 @@ service.interceptors.response.use(
         dangerouslyUseHTMLString: true,
         message: errorInfo,
         type: 'error',
-        duration: 5 * 1000
+        duration: 3 * 1000
       })
     }
     const errorRes = error.response.data
