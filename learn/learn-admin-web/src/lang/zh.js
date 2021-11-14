@@ -171,6 +171,7 @@ export default {
     delete: '删除',
     edit: '修改',
     save: '保存',
+    saveDraft: '保存草稿',
     pleaseSelect: '请选择',
     pleaseInput: '请输入',
     actions: '操作',
@@ -184,7 +185,9 @@ export default {
     operationFailed: '操作失败',
     deleteSuccessed: '删除成功',
     deleteFailed: '删除失败',
-    systemInfo: '系统提示'
+    systemInfo: '系统提示',
+    opTime: '操作时间',
+    opUserName: '操作人'
   },
   // 站点相关
   sites: {
@@ -217,6 +220,22 @@ export default {
     validNotEmptyDetailTemplate: '栏目默认细览模板不能为空',
     publishAll: '完全发布',
     publishOutline: '发布概览'
+  },
+  // 文章相关
+  articles: {
+    id: '文章编号',
+    title: '文章标题',
+    pubTime: '发布时间',
+    content: '文章内容',
+    summary: '摘要',
+    sortNum: '排序号',
+    state: '文章状态',
+    type: '文章类型',
+    createArticle: '新建文章',
+    editArticle: '编辑文章',
+    deleteWarning: '是否确认删除该文章？',
+    validNotEmptyArticleTitle: '文章标题不能为空',
+    validNotEmptyArticleContent: '文章内容不能为空'
   },
   // 用户相关
   users: {
