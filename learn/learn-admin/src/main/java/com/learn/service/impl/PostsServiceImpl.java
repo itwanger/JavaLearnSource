@@ -4,26 +4,29 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.learn.dto.PostTagParam;
 import com.learn.dto.PostsPageQueryParam;
 import com.learn.dto.PostsParam;
+import com.learn.model.PostTag;
 import com.learn.model.Posts;
 import com.learn.mapper.PostsMapper;
 import com.learn.model.TermRelationships;
+import com.learn.service.IPostTagService;
 import com.learn.service.IPostsService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.learn.service.ITermRelationshipsService;
 import com.learn.service.IUsersService;
 import com.learn.util.TermRelationType;
 import com.learn.vo.PostsVo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <p>
@@ -39,6 +42,8 @@ public class PostsServiceImpl extends ServiceImpl<PostsMapper, Posts> implements
     private IUsersService iUsersService;
     @Autowired
     private ITermRelationshipsService iTermRelationshipsService;
+    @Autowired
+    private IPostTagService iPostTagService;
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
@@ -51,7 +56,28 @@ public class PostsServiceImpl extends ServiceImpl<PostsMapper, Posts> implements
         }
         posts.setPostAuthor(iUsersService.getCurrentUserId());
         this.save(posts);
+
+        if(StringUtils.isNotBlank(postsParam.getTags())){
+            String[] tags = postsParam.getTags().split(",");
+            for(String tag:tags){
+                QueryWrapper<PostTag> postTagQueryWrapper = new QueryWrapper<>();
+                postTagQueryWrapper.eq("description",tag);
+                int count = iPostTagService.count(postTagQueryWrapper);
+                if(count == 0){
+                    PostTagParam postTagParam = new PostTagParam();
+                    postTagParam.setSiteId(postTagParam.getSiteId());
+                    postTagParam.setObjectId(posts.getId());
+                    postTagParam.setSiteId(postsParam.getSiteId());
+                    postTagParam.setDescription(tag);
+                    // TODO: 2021/11/14 先默认 循环添加
+                    postTagParam.setTermOrder(0);
+                    iPostTagService.savePostTag(postTagParam);
+                }
+            }
+        }
+
         return insertTermRelationships(postsParam,posts);
+
     }
 
 
