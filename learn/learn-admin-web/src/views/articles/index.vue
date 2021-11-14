@@ -334,11 +334,14 @@ export default {
       this.viewLoading = true
       getArticleById({ postsId: row.id }).then(response => {
         this.editDataModel = response.result
+        this.editDataModel.termTaxonomyId = row.termTaxonomyId
         this.dialogStatus = 'update'
         this.viewLoading = false
         this.dialogFormVisible = true
         this.$nextTick(() => {
-          this.$refs.editor.setContent(row.postContent)
+          if (this.$refs.editor) {
+            this.$refs.editor.setContent(this.editDataModel.postContent)
+          }
           this.$refs['dataForm'].clearValidate()
         })
       })
