@@ -1,73 +1,46 @@
 package com.learn.util;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.ui.ModelMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class WebRequestParam {
     private Integer id;
-    private Integer page;
-    private String path;
+    /**
+     * 分页参数 默认第一页
+     */
+    private Integer page = 1;
+    /**
+     * 站点id
+     */
+    private Long siteId;
+    /**
+     * 栏目id
+     */
+    private Long channelId;
+    /**
+     * 内容id
+     */
+    private Long postId;
     private HttpServletRequest request;
     private ModelMap model;
     private  HttpServletResponse response;
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public HttpServletRequest getRequest() {
-        return request;
-    }
-
-    public void setRequest(HttpServletRequest request) {
-        this.request = request;
-    }
-
-    public ModelMap getModel() {
-        return model;
-    }
-
-    public void setModel(ModelMap model) {
-        this.model = model;
-    }
-
-    public HttpServletResponse getResponse() {
-        return response;
-    }
-
-    public void setResponse(HttpServletResponse response) {
-        this.response = response;
-    }
-
-    public Integer getPage() {
-        return page;
-    }
-
-    public void setPage(Integer page) {
-        this.page = page;
-    }
 
     private  WebRequestParam (Builder builder){
         id = builder.id;
         page = builder.page;
-        path = builder.path;
         request = builder.request;
         model = builder.model;
-        response = builder.response;;
+        response = builder.response;
+        siteId = builder.siteId;
+        postId = builder.postId;
+        channelId = builder.channelId;
     }
 
 
@@ -75,10 +48,12 @@ public class WebRequestParam {
     public static  class  Builder {
         private Integer id;
         private Integer page;
-        private String path;
         private HttpServletRequest request;
         private ModelMap model;
         private  HttpServletResponse response;
+        private Long siteId;
+        private Long channelId;
+        private Long postId;
         public Builder(){
 
         }
@@ -90,10 +65,7 @@ public class WebRequestParam {
             this.page = page;
             return this;
         }
-        public Builder path(String path){
-            this.path = path;
-            return this;
-        }
+
         public Builder request(HttpServletRequest request){
             this.request = request;
             return this;
@@ -104,6 +76,18 @@ public class WebRequestParam {
         }
         public Builder response(HttpServletResponse response){
             this.response = response;
+            return this;
+        }
+        public Builder siteId(Long siteId){
+            this.siteId = siteId;
+            return this;
+        }
+        public Builder channelId(Long channelId){
+            this.channelId = channelId;
+            return this;
+        }
+        public Builder postId(Long postId){
+            this.postId = postId;
             return this;
         }
         public WebRequestParam build(){
