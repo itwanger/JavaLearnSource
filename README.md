@@ -5,7 +5,7 @@
 以后写在简历上，也是加分项。
 
 # 架构图
-![架构图](https://github.com/itwanger/JavaLearnSource/blob/main/doc/learn.drawio.png)
+![架构图](https://github.com/itwanger/JavaLearnSource/blob/main/doc/learn.png)
 # 项目结构介绍
 
 
